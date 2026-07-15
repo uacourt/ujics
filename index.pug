@@ -1,10 +1,14 @@
-include header
+extends header
 
-html
-    head
-        meta(property='og:title'       content='ЄСІКС')
-        meta(property='og:description' content='Єдина Судова Інформаційно-комунікаційна Система')
-        meta(property='og:url'         content='https://ujics.com/')
+block vars
+    - var activeMenu = 'ujics'
+    - var headerTitle = 'ЄСІКС'
+    - var headerSubtitle = 'Єдина Судова Інформаційно-Комунікаційна Система'
+
+block head_extra
+    meta(property='og:title'       content='ЄСІКС')
+    meta(property='og:description' content='Єдина Судова Інформаційно-Комунікаційна Система')
+    meta(property='og:url'         content='https://ujics.com/')
 
 block title
     title ЄСІКС
@@ -15,7 +19,7 @@ block content
             section
             p(style="font-size: 14px;").
                 Тут представлені звіти активностей процесу виробництва ISO-9001 Єдиної Судової
-                Інформаційно-комунікаційної Системи (ЄСІКС) або Unified Judicial Information
+                Інформаційно-Комунікаційної Системи (ЄСІКС) або Unified Judicial Information
                 Communication System (UJICS), яка складається з 10 томів.
         br
         <hr size=1>
