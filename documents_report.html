@@ -8,35 +8,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ══════════════════════════════════════════════════════════════════════
-           btron / uacourt — restrained ink & paper editorial design
-           Palette: ink, paper, teal, gold, hairline rules, museum plates.
-           Source aesthetic: ../../bitedits/btron/index.html
-           ══════════════════════════════════════════════════════════════════════ */
-
         :root {
-            --body-font: 'Inter', system-ui, -apple-system, sans-serif;
-            --mincho-font: 'Shippori Mincho', 'Times New Roman', Georgia, serif;
-            --mono-font: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-
+            --paper: #f7f7f5;
+            --paper-2: #efede7;
+            --paper-3: #e5e2da;
+            --plate: #ffffff;
+            --ink: #18191a;
+            --ink-2: #34373a;
+            --ink-3: #585c61;
+            --ink-4: #8a8f96;
+            --rule: #dedad2;
+            --rule-light: #ece9e2;
             --tron-teal: #008080;
             --tron-teal-hover: #006666;
+            --tron-teal-light: #e6f2f2;
             --tron-gold: #c59b27;
-
-            --ink: #14171a;
-            --ink-2: #2b3136;
-            --ink-3: #5b6470;
-            --ink-4: #8c96a3;
-            --paper: #f7f7f5;
-            --paper-2: #efeeea;
-            --plate: #ffffff;
-            --rule: #d8d7d1;
-            --rule-light: rgba(20, 23, 26, 0.08);
-
-            --shadow-plate: 0 1px 3px rgba(20, 23, 26, 0.04),
-                            0 12px 30px -15px rgba(20, 23, 26, 0.14);
-            --shadow-lift: 0 2px 5px rgba(20, 23, 26, 0.06),
-                           0 20px 45px -18px rgba(20, 23, 26, 0.20);
+            --tron-gold-light: #faf5e8;
+            --body-font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --serif-font: 'Shippori Mincho', 'Georgia', serif;
+            --mono-font: 'JetBrains Mono', 'Menlo', monospace;
+            --shadow-subtle: 0 1px 3px rgba(0,0,0,0.02);
+            --shadow-plate: 0 4px 20px rgba(0, 0, 0, 0.04);
+            --shadow-lift: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         * {
@@ -46,131 +39,110 @@
         }
 
         body {
+            background-color: var(--paper);
+            color: var(--ink);
             font-family: var(--body-font);
-            font-weight: 400;
-            letter-spacing: 0.015em;
-            line-height: 1.8;
-            color: var(--ink-2);
-            background: var(--paper);
-            padding: clamp(2rem, 5vw, 4rem) clamp(1.2rem, 4vw, 3rem);
-            min-height: 100vh;
+            font-size: 15px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding-bottom: 5rem;
         }
 
         .wrap {
-            max-width: 1240px;
+            max-width: 1420px;
             margin: 0 auto;
+            padding: clamp(1.5rem, 4vw, 3.5rem);
         }
 
-        /* ── Hero / Header ─────────────────────────────────────────────────── */
+        /* ── Typography & Header Elements ─────────────────────────────────── */
         header.hero {
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 2.2rem;
+            margin-bottom: 2.5rem;
             background: var(--plate);
+            padding: clamp(2rem, 4vw, 3.2rem);
             border: 1px solid var(--rule);
             box-shadow: var(--shadow-plate);
-            padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.8rem, 5vw, 4rem);
-            margin-bottom: clamp(2.5rem, 5vw, 4rem);
-            position: relative;
-        }
-
-        header.hero::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 2px;
-            background: linear-gradient(90deg, rgba(0, 128, 128, 0) 0%, rgba(0, 128, 128, 0.6) 50%, rgba(0, 128, 128, 0) 100%);
         }
 
         .hero-kicker {
             font-family: var(--mono-font);
-            font-size: 0.74rem;
-            letter-spacing: 0.26em;
+            font-size: 0.76rem;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
             color: var(--tron-teal);
-            margin-bottom: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.75rem;
         }
 
-        .hero-kicker span.bullet {
+        .hero-kicker .bullet {
             color: var(--tron-gold);
-            font-size: 1rem;
         }
 
-        h1.hero-title {
-            font-family: var(--mincho-font);
-            font-weight: 700;
-            font-size: clamp(2.2rem, 5vw, 3.6rem);
+        .hero-title {
+            font-family: var(--serif-font);
+            font-size: clamp(1.8rem, 3.6vw, 2.9rem);
+            font-weight: 600;
             line-height: 1.25;
             color: var(--ink);
-            letter-spacing: -0.01em;
-            margin-bottom: 1.4rem;
+            letter-spacing: -0.015em;
+            margin-bottom: 1.2rem;
         }
 
         .hero-rule {
-            width: 56px;
-            height: 1px;
-            background: var(--ink);
-            margin: 1.6rem 0;
-            opacity: 0.4;
+            width: 50px;
+            height: 2px;
+            background: var(--tron-gold);
+            margin-bottom: 1.2rem;
         }
 
-        p.hero-lede {
-            font-size: clamp(1.02rem, 1.6vw, 1.15rem);
-            font-weight: 400;
-            line-height: 2;
+        .hero-lede {
+            font-size: clamp(0.98rem, 1.4vw, 1.12rem);
+            line-height: 1.7;
             color: var(--ink-2);
-            max-width: 950px;
-            margin-bottom: 2rem;
+            max-width: 1080px;
+            margin-bottom: 1.8rem;
         }
 
         .hero-marks {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.6rem clamp(1.4rem, 3vw, 2.6rem);
-            padding-top: 1.6rem;
-            border-top: 1px solid var(--rule);
+            gap: 1.5rem;
             font-family: var(--mono-font);
-            font-size: 0.74rem;
-            letter-spacing: 0.12em;
+            font-size: 0.8rem;
             color: var(--ink-3);
+            border-top: 1px solid var(--rule-light);
+            padding-top: 1.2rem;
         }
 
-        .hero-marks span::before {
-            content: "·";
-            margin-right: 0.5rem;
-            color: var(--tron-gold);
-            font-weight: bold;
-        }
-
-        .hero-marks strong {
+        .hero-marks span strong {
             color: var(--ink);
-            font-weight: 600;
         }
 
-        /* ── KPI Ledger Cards ─────────────────────────────────────────────── */
+        /* ── KPI Plates ───────────────────────────────────────────────────── */
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1.25rem;
-            margin-bottom: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2.8rem;
         }
 
         .kpi-plate {
             background: var(--plate);
             border: 1px solid var(--rule);
             box-shadow: var(--shadow-plate);
-            padding: 1.6rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: box-shadow 300ms ease, transform 300ms ease;
+            padding: 1.75rem 1.6rem;
+            transition: transform 200ms ease, box-shadow 200ms ease;
+            position: relative;
         }
 
         .kpi-plate:hover {
-            box-shadow: var(--shadow-lift);
             transform: translateY(-2px);
+            box-shadow: var(--shadow-lift);
         }
 
         .kpi-label {
@@ -178,17 +150,17 @@
             font-size: 0.72rem;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--ink-3);
-            margin-bottom: 0.75rem;
+            color: var(--ink-4);
+            margin-bottom: 0.6rem;
         }
 
         .kpi-val {
-            font-family: var(--mincho-font);
-            font-size: 2.6rem;
+            font-family: var(--serif-font);
+            font-size: 2.4rem;
             font-weight: 700;
-            line-height: 1;
             color: var(--ink);
-            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            margin-bottom: 0.35rem;
         }
 
         .kpi-val.teal {
@@ -196,57 +168,51 @@
         }
 
         .kpi-sub {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--ink-3);
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
-        .kpi-sub strong {
-            color: var(--ink-2);
-        }
-
-        /* ── Band Section Headings ────────────────────────────────────────── */
-        .band-head {
-            display: grid;
-            grid-template-columns: auto 1fr auto;
+        /* ── Section Headings ─────────────────────────────────────────────── */
+        .sec-head {
+            margin-bottom: 1.25rem;
+            display: flex;
             align-items: baseline;
-            gap: 1.2rem;
-            border-top: 1px solid var(--rule);
-            padding-top: 1.5rem;
-            margin-bottom: 1.5rem;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 0.75rem;
         }
 
-        .band-index {
-            font-family: var(--mono-font);
-            font-size: 0.78rem;
-            letter-spacing: 0.22em;
-            color: var(--tron-teal);
-            white-space: nowrap;
-        }
-
-        .band-head h2 {
-            font-family: var(--mincho-font);
+        .sec-title {
+            font-family: var(--serif-font);
+            font-size: 1.55rem;
             font-weight: 600;
-            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
             color: var(--ink);
-            line-height: 1.3;
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
         }
 
-        .band-eyebrow {
+        .sec-num {
             font-family: var(--mono-font);
-            font-size: 0.72rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--ink-3);
+            font-size: 0.85rem;
+            color: var(--tron-teal);
+            font-weight: normal;
         }
 
-        /* ── Ledger Table ─────────────────────────────────────────────────── */
+        .sec-caption {
+            font-size: 0.86rem;
+            color: var(--ink-4);
+            font-family: var(--mono-font);
+        }
+
+        /* ── Tables & Ledger ──────────────────────────────────────────────── */
         .table-wrap {
             background: var(--plate);
             border: 1px solid var(--rule);
             box-shadow: var(--shadow-plate);
             overflow-x: auto;
-            margin-bottom: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2.8rem;
         }
 
         table.ledger {
@@ -257,55 +223,53 @@
         }
 
         table.ledger th {
-            background: var(--paper-2);
             font-family: var(--mono-font);
             font-size: 0.72rem;
-            font-weight: 600;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: var(--ink);
-            padding: 1rem 1.25rem;
+            background: var(--paper-2);
+            color: var(--ink-2);
+            padding: 0.9rem 1.1rem;
             border-bottom: 1px solid var(--rule);
+            font-weight: 600;
             white-space: nowrap;
         }
 
         table.ledger td {
-            padding: 1.1rem 1.25rem;
+            padding: 1rem 1.1rem;
             border-bottom: 1px solid var(--rule-light);
-            color: var(--ink-2);
             vertical-align: middle;
-        }
-
-        table.ledger tr:last-child td {
-            border-bottom: 0;
         }
 
         table.ledger tr:hover td {
-            background: rgba(247, 247, 245, 0.6);
+            background: rgba(0, 128, 128, 0.02);
+        }
+
+        table.ledger tr:last-child td {
+            border-bottom: none;
         }
 
         .progress-bar-bg {
-            background: var(--paper-2);
-            border: 1px solid var(--rule);
-            height: 6px;
-            width: 100px;
-            overflow: hidden;
+            background: var(--paper-3);
+            height: 4px;
+            width: 70px;
             display: inline-block;
             vertical-align: middle;
-            margin-right: 0.6rem;
+            margin-right: 8px;
+            position: relative;
         }
 
         .progress-bar-fill {
-            height: 100%;
             background: var(--tron-teal);
+            height: 100%;
         }
 
-        /* ── Repositories Plates Grid ─────────────────────────────────────── */
+        /* ── Repositories Grid ────────────────────────────────────────────── */
         .repos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.25rem;
-            margin-bottom: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 3rem;
         }
 
         .repo-plate {
@@ -316,72 +280,69 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: box-shadow 300ms ease, transform 300ms ease;
+            transition: transform 200ms ease, box-shadow 200ms ease;
         }
 
         .repo-plate:hover {
-            box-shadow: var(--shadow-lift);
             transform: translateY(-2px);
+            box-shadow: var(--shadow-lift);
         }
 
         .repo-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.75rem;
+            align-items: baseline;
+            margin-bottom: 0.6rem;
         }
 
         .repo-name {
             font-family: var(--mono-font);
-            font-weight: 700;
             font-size: 1.15rem;
+            font-weight: 600;
             color: var(--ink);
-            letter-spacing: 0.05em;
         }
 
         .repo-desc {
             font-size: 0.88rem;
             color: var(--ink-3);
-            margin-bottom: 1.4rem;
-            line-height: 1.7;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
         }
 
         .repo-stats-row {
             display: flex;
-            align-items: center;
-            gap: 1.6rem;
-            padding-top: 1rem;
+            gap: 1.5rem;
             border-top: 1px solid var(--rule-light);
-            font-size: 0.82rem;
+            padding-top: 0.9rem;
+            align-items: center;
         }
 
         .repo-stat-item span {
+            display: block;
             font-family: var(--mono-font);
             font-size: 0.68rem;
-            letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--ink-4);
-            display: block;
+            letter-spacing: 0.1em;
         }
 
         .repo-stat-item strong {
-            font-family: var(--mono-font);
-            font-size: 1.05rem;
+            font-family: var(--serif-font);
+            font-size: 1.25rem;
             color: var(--ink);
         }
 
-        /* ── Stamps (Minimalist Badges) ───────────────────────────────────── */
+        /* ── Stamps & Badges ──────────────────────────────────────────────── */
         .stamp {
+            display: inline-flex;
+            align-items: center;
             font-family: var(--mono-font);
-            font-size: 0.64rem;
-            font-weight: 500;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            padding: 0.22rem 0.6rem;
-            border: 1px solid currentColor;
-            border-radius: 1px;
+            font-size: 0.72rem;
+            padding: 0.2rem 0.55rem;
+            border: 1px solid;
+            letter-spacing: 0.04em;
+            line-height: 1.2;
             white-space: nowrap;
-            display: inline-block;
         }
 
         .stamp-live {
@@ -414,7 +375,7 @@
             gap: 0.45rem;
             font-family: var(--mono-font);
             font-size: 0.74rem;
-            letter-spacing: 0.14em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--ink);
             text-decoration: none;
@@ -492,102 +453,92 @@
             font-size: 0.88rem;
             color: var(--ink);
             outline: none;
-            cursor: pointer;
             appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235b6470' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            cursor: pointer;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%2334373a" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
             background-repeat: no-repeat;
-            background-position: right 0.75rem center;
-            background-size: 14px;
-        }
-
-        .custom-select:focus {
-            border-color: var(--tron-teal);
+            background-position: right 0.8rem center;
         }
 
         .filter-bottom {
             display: flex;
+            gap: 0.5rem;
             flex-wrap: wrap;
             align-items: center;
-            gap: 0.5rem;
-            padding-top: 1rem;
             border-top: 1px solid var(--rule-light);
+            padding-top: 1rem;
         }
 
-        .filter-label {
+        .filter-tag {
             font-family: var(--mono-font);
-            font-size: 0.72rem;
-            letter-spacing: 0.16em;
+            font-size: 0.74rem;
+            color: var(--ink-4);
+            margin-right: 0.5rem;
             text-transform: uppercase;
-            color: var(--ink-3);
-            margin-right: 0.4rem;
         }
 
         .filter-stamp-btn {
             background: transparent;
             border: 1px solid var(--rule);
-            color: var(--ink-3);
             font-family: var(--mono-font);
-            font-size: 0.68rem;
-            letter-spacing: 0.12em;
+            font-size: 0.74rem;
             padding: 0.35rem 0.75rem;
+            color: var(--ink-3);
             cursor: pointer;
             transition: all 180ms ease;
         }
 
         .filter-stamp-btn:hover {
-            border-color: var(--ink);
+            border-color: var(--ink-3);
             color: var(--ink);
         }
 
         .filter-stamp-btn.active {
-            border-color: var(--tron-teal);
-            color: var(--tron-teal);
-            background: rgba(0, 128, 128, 0.06);
-            font-weight: 600;
+            background: var(--ink);
+            border-color: var(--ink);
+            color: var(--paper);
         }
 
+        /* ── Control Status Row ───────────────────────────────────────────── */
         .control-status-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             font-family: var(--mono-font);
-            font-size: 0.76rem;
-            letter-spacing: 0.08em;
+            font-size: 0.82rem;
             color: var(--ink-3);
         }
 
         .view-btn-group {
-            display: flex;
-            gap: 0.5rem;
+            display: inline-flex;
+            border: 1px solid var(--rule);
         }
 
         .view-btn {
-            background: var(--plate);
-            border: 1px solid var(--rule);
-            color: var(--ink-3);
+            background: var(--paper);
+            border: none;
+            padding: 0.45rem 1rem;
             font-family: var(--mono-font);
-            font-size: 0.72rem;
-            letter-spacing: 0.1em;
-            padding: 0.35rem 0.75rem;
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink-3);
             cursor: pointer;
-            transition: all 180ms ease;
+            transition: background 150ms ease, color 150ms ease;
         }
 
         .view-btn.active {
-            border-color: var(--tron-teal);
-            color: var(--tron-teal);
-            background: rgba(0, 128, 128, 0.06);
+            background: var(--ink);
+            color: var(--paper);
         }
 
-        /* ── Document Item Display ────────────────────────────────────────── */
+        /* ── Doc Table Detail Cells ───────────────────────────────────────── */
         .doc-title-text {
-            font-family: var(--mincho-font);
             font-weight: 600;
-            font-size: 1.05rem;
-            line-height: 1.45;
             color: var(--ink);
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.35rem;
+            line-height: 1.4;
         }
 
         .doc-path-text {
@@ -596,6 +547,9 @@
             color: var(--ink-4);
             margin-bottom: 0.35rem;
             word-break: break-all;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         .doc-desc-text {
@@ -666,8 +620,13 @@
             text-align: center;
         }
 
-        footer strong {
-            color: var(--ink-2);
+        footer a {
+            color: var(--ink-3);
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: var(--tron-teal);
         }
 
         /* ── Print Styles ─────────────────────────────────────────────────── */
@@ -708,14 +667,14 @@
         <h1 class="hero-title">Реєстр та аналітичний звіт щодо TeX-документів ЄСІКС</h1>
         <div class="hero-rule"></div>
         <p class="hero-lede">
-            Повний реєстр, класифікація та підрахунок сторінок PDF у поточному репозиторії <strong>audit</strong> та всіх 14 репозиторіях організації <strong>uacourt</strong> (/Users/tonpa/depot/uacourt).
+            Повний реєстр, класифікація та прямі верифіковані посилання на PDF-документи і LaTeX-джерела у репозиторіях організації <strong>uacourt</strong> на офіційних ресурсах GitHub Pages (<a href="https://uacourt.github.io/ujics/" target="_blank" rel="noopener noreferrer" style="color:var(--tron-teal); font-weight:600; text-decoration:underline;">uacourt.github.io/ujics/</a>, <a href="https://uacourt.github.io/vkz/" target="_blank" rel="noopener noreferrer" style="color:var(--tron-teal); font-weight:600; text-decoration:underline;">uacourt.github.io/vkz/</a>, <a href="https://uacourt.github.io/ai/" target="_blank" rel="noopener noreferrer" style="color:var(--tron-teal); font-weight:600; text-decoration:underline;">uacourt.github.io/ai/</a>, <a href="https://uacourt.github.io/bpmn/" target="_blank" rel="noopener noreferrer" style="color:var(--tron-teal); font-weight:600; text-decoration:underline;">uacourt.github.io/bpmn/</a>) та публічних і внутрішніх репозиторіях організації <a href="https://github.com/uacourt" target="_blank" rel="noopener noreferrer" style="color:var(--tron-teal); font-weight:600; text-decoration:underline;">github.com/uacourt</a>.
         </p>
         <div class="hero-marks">
-            <span>Статус: <strong>Верифіковано 100%</strong></span>
-            <span>Джерело: <strong>/Users/tonpa/depot/uacourt</strong></span>
-            <span>Дата: <strong>2026-10-28</strong></span>
+            <span>Статус: <strong>Верифіковано 100% (67 документів)</strong></span>
+            <span>Організація: <strong><a href="https://github.com/uacourt" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">github.com/uacourt</a></strong></span>
+            <span>GitHub Pages: <strong><a href="https://uacourt.github.io/ujics/" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">uacourt.github.io</a></strong></span>
             <span>Формати: <strong>LaTeX (.tex) / PDF</strong></span>
-            <span>Естетика: <strong>BTRON Ink &amp; Paper</strong></span>
+            <span>Стиль: <strong>BTRON Ink &amp; Paper</strong></span>
         </div>
     </header>
 
@@ -739,15 +698,16 @@
         <div class="kpi-plate">
             <div class="kpi-label">04 / Репозиторіїв із TeX</div>
             <div class="kpi-val teal">7 <span style="font-size:1.2rem; color:var(--ink-4); font-weight:normal;">/ 14</span></div>
-            <div class="kpi-sub">Організація <code>uacourt</code> на GitHub</div>
+            <div class="kpi-sub">Репозиторії судової екосистеми з LaTeX/PDF</div>
         </div>
     </div>
 
-    <!-- BAND 1: CATEGORIES -->
-    <div class="band-head">
-        <span class="band-index">02 / Categories</span>
-        <h2>Зведена таблиця за категоріями документів</h2>
-        <span class="band-eyebrow">8 напрямків</span>
+    <!-- SECTION 1: CATEGORIES LEDGER -->
+    <div class="sec-head">
+        <div class="sec-title">
+            <span class="sec-num">02 /</span> Зведена відомість за категоріями
+        </div>
+        <div class="sec-caption">Класифікація нормативних та технічних документів</div>
     </div>
 
     <div class="table-wrap">
@@ -756,11 +716,11 @@
                 <tr>
                     <th style="width: 45px;">№</th>
                     <th>Категорія документів</th>
-                    <th>К-сть док.</th>
-                    <th>Частка сторінок</th>
+                    <th>Кількість</th>
+                    <th>Частка обсягу</th>
                     <th>Сторінок PDF</th>
                     <th>Рядків TeX</th>
-                    <th>Призначення та зміст</th>
+                    <th>Опис та нормативний зміст</th>
                 </tr>
             </thead>
             <tbody>
@@ -873,11 +833,12 @@
         </table>
     </div>
 
-    <!-- BAND 2: REPOSITORIES -->
-    <div class="band-head">
-        <span class="band-index">03 / Depot</span>
-        <h2>Розподіл по репозиторіях організації uacourt</h2>
-        <span class="band-eyebrow">7 профільних сховищ</span>
+    <!-- SECTION 2: REPOSITORIES GRID -->
+    <div class="sec-head">
+        <div class="sec-title">
+            <span class="sec-num">03 /</span> Каталог репозиторіїв організації uacourt
+        </div>
+        <div class="sec-caption">Розподіл документів між репозиторіями та підсистемами</div>
     </div>
 
     <div class="repos-grid">
@@ -886,7 +847,10 @@
       <div>
         <div class="repo-header">
           <span class="repo-name">security</span>
-          <span class="stamp stamp-live">11 док.</span>
+          <div style="display:flex; gap:0.4rem; align-items:center;">
+            <span class="stamp stamp-ink">uacourt/security</span>
+            <span class="stamp stamp-dim">11 док.</span>
+          </div>
         </div>
         <p class="repo-desc">Комплексна система захисту інформації (КСЗІ), нормативні профілі ТЗІ, каталоги заходів</p>
       </div>
@@ -899,8 +863,9 @@
           <span>Рядків TeX</span>
           <strong>47,601</strong>
         </div>
-        <div class="repo-stat-item" style="margin-left:auto; align-self:flex-end;">
-          <a class="entry" href="file:///Users/tonpa/depot/uacourt/security">Каталог →</a>
+        <div class="repo-stat-item" style="margin-left:auto; align-self:flex-end; display:flex; gap:0.6rem; flex-wrap:wrap;">
+          
+          <a class="entry" href="https://github.com/uacourt/security" target="_blank" rel="noopener noreferrer">GitHub →</a>
         </div>
       </div>
     </div>
@@ -909,7 +874,10 @@
       <div>
         <div class="repo-header">
           <span class="repo-name">audit</span>
-          <span class="stamp stamp-live">27 док.</span>
+          <div style="display:flex; gap:0.4rem; align-items:center;">
+            <span class="stamp stamp-ink">uacourt/audit</span>
+            <span class="stamp stamp-dim">27 док.</span>
+          </div>
         </div>
         <p class="repo-desc">Аудит, інфраструктура ЦОД, експертні рецензії, шаблони наказів ДП «ІСС», правові моделі</p>
       </div>
@@ -922,8 +890,9 @@
           <span>Рядків TeX</span>
           <strong>12,786</strong>
         </div>
-        <div class="repo-stat-item" style="margin-left:auto; align-self:flex-end;">
-          <a class="entry" href="file:///Users/tonpa/depot/uacourt/audit">Каталог →</a>
+        <div class="repo-stat-item" style="margin-left:auto; align-self:flex-end; display:flex; gap:0.6rem; flex-wrap:wrap;">
+          
+          <a class="entry" href="https://github.com/uacourt/audit" target="_blank" rel="noopener noreferrer">GitHub →</a>
         </div>
       </div>
     </div>
@@ -932,7 +901,10 @@
       <div>
         <div class="repo-header">
           <span class="repo-name">ujics</span>
-          <span class="stamp stamp-live">13 док.</span>
+          <div style="display:flex; gap:0.4rem; align-items:center;">
+            <span class="stamp stamp-live">uacourt.github.io/ujics/</span>
+            <span class="stamp stamp-dim">13 док.</span>
+          </div>
         </div>
         <p class="repo-desc">Технічні вимоги (ТВ) до 10 підсистем ЄСІКС, регламенти проєктного планування (SDLC), OKR</p>
       </div>
@@ -945,8 +917,9 @@
           <span>Рядків TeX</span>
           <strong>5,926</strong>
         </div>
-        <div class="repo-stat-item" style="margin-left:auto; align-self:flex-end;">
-          <a class="entry" href="file:///Users/tonpa/depot/uacourt/ujics">Каталог →</a>
+        <div class="repo-stat-item" style="margin-left:auto; align-self:flex-end; display:flex; gap:0.6rem; flex-wrap:wrap;">
+          <a class="entry entry-teal" href="https://uacourt.github.io/ujics/" target="_blank" rel="noopener noreferrer">Pages →</a>
+          <a class="entry" href="https://github.com/uacourt/ujics" target="_blank" rel="noopener noreferrer">GitHub →</a>
         </div>
       </div>
     </div>
@@ -955,7 +928,10 @@
       <div>
         <div class="repo-header">
           <span class="repo-name">vkz</span>
-          <span class="stamp stamp-live">10 док.</span>
+          <div style="display:flex; gap:0.4rem; align-items:center;">
+            <span class="stamp stamp-live">uacourt.github.io/vkz/</span>
+            <span class="stamp stamp-dim">10 док.</span>
+          </div>
         </div>
         <p class="repo-desc">Підсистема відеоконференцзв’язку (ВКЗ), SRE посібник, посібники користувача, MCU медіасервер</p>
       </div>
@@ -968,8 +944,9 @@
           <span>Рядків TeX</span>
           <strong>5,990</strong>
         </div>
-        <div class="repo-stat-item" style="margin-left:auto; align-self:flex-end;">
-          <a class="entry" href="file:///Users/tonpa/depot/uacourt/vkz">Каталог →</a>
+        <div class="repo-stat-item" style="margin-left:auto; align-self:flex-end; display:flex; gap:0.6rem; flex-wrap:wrap;">
+          <a class="entry entry-teal" href="https://uacourt.github.io/vkz/" target="_blank" rel="noopener noreferrer">Pages →</a>
+          <a class="entry" href="https://github.com/uacourt/vkz" target="_blank" rel="noopener noreferrer">GitHub →</a>
         </div>
       </div>
     </div>
@@ -978,7 +955,10 @@
       <div>
         <div class="repo-header">
           <span class="repo-name">bpmn</span>
-          <span class="stamp stamp-live">1 док.</span>
+          <div style="display:flex; gap:0.4rem; align-items:center;">
+            <span class="stamp stamp-live">uacourt.github.io/bpmn/</span>
+            <span class="stamp stamp-dim">1 док.</span>
+          </div>
         </div>
         <p class="repo-desc">Моделювання процесного управління, академічні дослідження кафедри прикладної математики КПІ</p>
       </div>
@@ -991,8 +971,9 @@
           <span>Рядків TeX</span>
           <strong>1,698</strong>
         </div>
-        <div class="repo-stat-item" style="margin-left:auto; align-self:flex-end;">
-          <a class="entry" href="file:///Users/tonpa/depot/uacourt/bpmn">Каталог →</a>
+        <div class="repo-stat-item" style="margin-left:auto; align-self:flex-end; display:flex; gap:0.6rem; flex-wrap:wrap;">
+          <a class="entry entry-teal" href="https://uacourt.github.io/bpmn/" target="_blank" rel="noopener noreferrer">Pages →</a>
+          <a class="entry" href="https://github.com/uacourt/bpmn" target="_blank" rel="noopener noreferrer">GitHub →</a>
         </div>
       </div>
     </div>
@@ -1001,7 +982,10 @@
       <div>
         <div class="repo-header">
           <span class="repo-name">ai</span>
-          <span class="stamp stamp-live">4 док.</span>
+          <div style="display:flex; gap:0.4rem; align-items:center;">
+            <span class="stamp stamp-live">uacourt.github.io/ai/</span>
+            <span class="stamp stamp-dim">4 док.</span>
+          </div>
         </div>
         <p class="repo-desc">Інтелектуальні сервіси ЄСІКС, локальна LLM-інфраструктура на GPU, вимоги до RAG-конвеєра</p>
       </div>
@@ -1014,8 +998,9 @@
           <span>Рядків TeX</span>
           <strong>1,229</strong>
         </div>
-        <div class="repo-stat-item" style="margin-left:auto; align-self:flex-end;">
-          <a class="entry" href="file:///Users/tonpa/depot/uacourt/ai">Каталог →</a>
+        <div class="repo-stat-item" style="margin-left:auto; align-self:flex-end; display:flex; gap:0.6rem; flex-wrap:wrap;">
+          <a class="entry entry-teal" href="https://uacourt.github.io/ai/" target="_blank" rel="noopener noreferrer">Pages →</a>
+          <a class="entry" href="https://github.com/uacourt/ai" target="_blank" rel="noopener noreferrer">GitHub →</a>
         </div>
       </div>
     </div>
@@ -1024,7 +1009,10 @@
       <div>
         <div class="repo-header">
           <span class="repo-name">crm-pro</span>
-          <span class="stamp stamp-live">1 док.</span>
+          <div style="display:flex; gap:0.4rem; align-items:center;">
+            <span class="stamp stamp-ink">uacourt/crm</span>
+            <span class="stamp stamp-dim">1 док.</span>
+          </div>
         </div>
         <p class="repo-desc">Політики та стандарти розробки CRM-підсистеми взаємодії з громадянами та судами</p>
       </div>
@@ -1037,55 +1025,53 @@
           <span>Рядків TeX</span>
           <strong>947</strong>
         </div>
-        <div class="repo-stat-item" style="margin-left:auto; align-self:flex-end;">
-          <a class="entry" href="file:///Users/tonpa/depot/uacourt/crm-pro">Каталог →</a>
+        <div class="repo-stat-item" style="margin-left:auto; align-self:flex-end; display:flex; gap:0.6rem; flex-wrap:wrap;">
+          
+          <a class="entry" href="https://github.com/uacourt/crm" target="_blank" rel="noopener noreferrer">GitHub →</a>
         </div>
       </div>
     </div>
     
     </div>
 
-    <!-- BAND 3: REGISTRY -->
-    <div class="band-head">
-        <span class="band-index">04 / Master Registry</span>
-        <h2>Повний реєстр документів (67 файлів)</h2>
-        <button onclick="window.print()" class="entry entry-teal" style="background:none; border-top:0; border-left:0; border-right:0;">
-            Друк / Експорт в PDF →
-        </button>
+    <!-- SECTION 3: FULL REGISTRY LEDGER -->
+    <div class="sec-head">
+        <div class="sec-title">
+            <span class="sec-num">04 /</span> Повний реєстр документів ЄСІКС
+        </div>
+        <div class="sec-caption">67 документів · інтерактивний пошук, сортування та прямі джерела</div>
     </div>
 
-    <!-- FILTER & SEARCH PANEL -->
+    <!-- CONTROLS & FILTER PANEL -->
     <div class="filter-panel">
         <div class="filter-top">
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Пошук за назвою, назвою файлу, темою або описом..." onkeyup="filterDocs()">
+                <input type="text" id="searchInput" placeholder="Пошук за назвою, файлом, суттю чи репозиторієм (напр. 'nist', 'вкз', 'lzi')..." oninput="filterDocs()">
             </div>
             <div class="select-group">
-                <select id="catSelect" class="custom-select" onchange="filterDocs()">
+                <select class="custom-select" id="catSelect" onchange="filterDocs()">
                     <option value="">Всі категорії (8)</option>
-                    <option value="КСЗІ та профілі безпеки">КСЗІ та профілі безпеки (10)</option>
-                    <option value="Інфраструктура ЦОД та SRE">Інфраструктура ЦОД та SRE (7)</option>
-                    <option value="Технічні вимоги (ТВ)">Технічні вимоги (ТВ) (12)</option>
-                    <option value="Аудит та експертиза">Аудит та експертиза (13)</option>
-                    <option value="ШІ та наукові дослідження">ШІ та наукові дослідження (6)</option>
-                    <option value="OKR, політики та регламенти">OKR, політики та регламенти (6)</option>
-                    <option value="Тендери та накази ДП «ІСС»">Тендери та накази ДП «ІСС» (9)</option>
-                    <option value="Підсистема ВКЗ">Підсистема ВКЗ (4)</option>
+                    <option value="КСЗІ та профілі безпеки">КСЗІ та профілі безпеки</option>
+                    <option value="Інфраструктура ЦОД та SRE">Інфраструктура ЦОД та SRE</option>
+                    <option value="OKR, політики та регламенти">OKR, політики та регламенти</option>
+                    <option value="Технічні вимоги (ТВ)">Технічні вимоги (ТВ)</option>
+                    <option value="ШІ та наукові дослідження">ШІ та наукові дослідження</option>
+                    <option value="Аудит та експертиза">Аудит та експертиза</option>
+                    <option value="Тендери та накази ДП «ІСС»">Тендери та накази ДП «ІСС»</option>
+                    <option value="Підсистема ВКЗ">Підсистема ВКЗ</option>
                 </select>
-
-                <select id="sortSelect" class="custom-select" onchange="filterDocs()">
-                    <option value="id_asc">Сортування: За замовчуванням (#)</option>
-                    <option value="pages_desc">Сторінок PDF (від найбільшого)</option>
-                    <option value="pages_asc">Сторінок PDF (від найменшого)</option>
-                    <option value="lines_desc">Рядків TeX (від найбільшого)</option>
-                    <option value="title_asc">Назва документа (А-Я)</option>
-                    <option value="repo_asc">Репозиторій (А-Я)</option>
+                <select class="custom-select" id="sortSelect" onchange="filterDocs()">
+                    <option value="id_asc">Сортування: № за порядком</option>
+                    <option value="pages_desc">Обсяг: найбільші спочатку</option>
+                    <option value="pages_asc">Обсяг: найменші спочатку</option>
+                    <option value="lines_desc">Рядків TeX: за спаданням</option>
+                    <option value="title_asc">Назва: від А до Я</option>
+                    <option value="repo_asc">Репозиторій: від A до Z</option>
                 </select>
             </div>
         </div>
-
         <div class="filter-bottom">
-            <span class="filter-label">Репозиторій:</span>
+            <span class="filter-tag">Фільтр репозиторію:</span>
             <button class="filter-stamp-btn active" onclick="setRepoFilter('', this)">Всі</button>
             <button class="filter-stamp-btn" onclick="setRepoFilter('security', this)">security (11)</button>
             <button class="filter-stamp-btn" onclick="setRepoFilter('audit', this)">audit (27)</button>
@@ -1094,15 +1080,17 @@
             <button class="filter-stamp-btn" onclick="setRepoFilter('ai', this)">ai (4)</button>
             <button class="filter-stamp-btn" onclick="setRepoFilter('bpmn', this)">bpmn (1)</button>
             <button class="filter-stamp-btn" onclick="setRepoFilter('crm-pro', this)">crm-pro (1)</button>
-
-            <span class="filter-label" style="margin-left:auto;">Дублікати:</span>
-            <button class="filter-stamp-btn" id="dupFilterBtn" onclick="toggleDuplicates(this)">Тільки унікальні (61)</button>
+            <div style="margin-left:auto;">
+                <button class="filter-stamp-btn" id="dupFilterBtn" onclick="toggleDuplicates(this)">Тільки унікальні (61)</button>
+            </div>
         </div>
     </div>
 
-    <!-- CONTROL STATUS ROW -->
+    <!-- STATUS & VIEW TOGGLE -->
     <div class="control-status-row">
-        <div id="resultsCount">Показано <strong>67</strong> з 67 документів</div>
+        <div id="resultsCount">
+            Показано <strong>67</strong> з 67 документів (<strong>1,670</strong> сторінок PDF)
+        </div>
         <div class="view-btn-group">
             <button class="view-btn active" id="tableViewBtn" onclick="switchView('table')">Таблиця</button>
             <button class="view-btn" id="cardsViewBtn" onclick="switchView('cards')">Картки</button>
@@ -1137,14 +1125,14 @@
     <!-- FOOTER -->
     <footer>
         <p>BTRON Editorial Ledger · Платформа аудиту та модернізації судової системи ЄСІКС</p>
-        <p style="margin-top:0.4rem;">ДП «Інформаційні судові системи» · ДСА України · /Users/tonpa/depot/uacourt/audit</p>
+        <p style="margin-top:0.4rem;">ДП «Інформаційні судові системи» · ДСА України · <a href="https://uacourt.github.io/ujics/" target="_blank" rel="noopener noreferrer">uacourt.github.io/ujics/</a> · <a href="https://uacourt.github.io/vkz/" target="_blank" rel="noopener noreferrer">uacourt.github.io/vkz/</a> · <a href="https://uacourt.github.io/ai/" target="_blank" rel="noopener noreferrer">uacourt.github.io/ai/</a> · <a href="https://github.com/uacourt" target="_blank" rel="noopener noreferrer">github.com/uacourt</a></p>
     </footer>
 
 </div>
 
 <!-- DATA AND INTERACTION SCRIPT -->
 <script>
-    const DOCS = [{"id": 1, "title": "Комплексна система захисту інформації: Повний каталог заходів із захисту інформації (1123 заходи захисту за НД ТЗІ / NIST SP 800-53)", "category": "КСЗІ та профілі безпеки", "desc": "Фундаментальний каталог 1123 контролів безпеки та заходів ТЗІ для судових систем. Включає детальні матриці для атестації та аудиту.", "rel_path": "security/priv/bible_profile.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/bible_profile.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/security/priv/bible_profile.tex", "has_pdf": true, "pdf_rel": "security/priv/bible_profile.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/bible_profile.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/security/priv/bible_profile.pdf", "repo": "security", "pages": 436, "lines": 42431, "is_duplicate": false, "duplicate_of": null}, {"id": 2, "title": "ЄСІКС «Судова Система України»: Цільовий профіль безпеки UA.47850061.СЗІ.ДП-82", "category": "КСЗІ та профілі безпеки", "desc": "Офіційний нормативний профіль безпеки найвищого рівня L3 для автоматизованих систем судів загальної юрисдикції.", "rel_path": "security/priv/legal_l3_profile_court.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/legal_l3_profile_court.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/security/priv/legal_l3_profile_court.tex", "has_pdf": true, "pdf_rel": "security/priv/legal_l3_profile_court.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/legal_l3_profile_court.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/security/priv/legal_l3_profile_court.pdf", "repo": "security", "pages": 109, "lines": 958, "is_duplicate": false, "duplicate_of": null}, {"id": 3, "title": "ЄСІКС «Центр обробки даних (ЦОД)»: Цільовий профіль безпеки UA.47850061.СЗІ.ДП-16", "category": "КСЗІ та профілі безпеки", "desc": "Нормативний цільовий профіль безпеки рівня L3 для центрального дата-центру судової влади України.", "rel_path": "security/priv/legal_l3_profile_cod.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/legal_l3_profile_cod.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/security/priv/legal_l3_profile_cod.tex", "has_pdf": true, "pdf_rel": "security/priv/legal_l3_profile_cod.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/legal_l3_profile_cod.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/security/priv/legal_l3_profile_cod.pdf", "repo": "security", "pages": 103, "lines": 900, "is_duplicate": false, "duplicate_of": null}, {"id": 4, "title": "Галузевий профіль безпеки судової системи (хмарні послуги та послуги ЦОД)", "category": "КСЗІ та профілі безпеки", "desc": "Галузевий нормативний профіль безпеки рівня L2 для хмарних сервісів та ЦОД судової влади при взаємодії з публічними реєстрами.", "rel_path": "security/priv/legal_l2_court_profile.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/legal_l2_court_profile.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/security/priv/legal_l2_court_profile.tex", "has_pdf": true, "pdf_rel": "security/priv/legal_l2_court_profile.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/legal_l2_court_profile.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/security/priv/legal_l2_court_profile.pdf", "repo": "security", "pages": 41, "lines": 521, "is_duplicate": false, "duplicate_of": null}, {"id": 5, "title": "Базовий профіль безпеки системи службової інформації (Наказ ДССЗЗІ № 419)", "category": "КСЗІ та профілі безпеки", "desc": "Державний базовий нормативний профіль безпеки рівня L1 для систем, де циркулює службова інформація («ДСК»).", "rel_path": "security/priv/legal_l1_profile_419.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/legal_l1_profile_419.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/security/priv/legal_l1_profile_419.tex", "has_pdf": true, "pdf_rel": "security/priv/legal_l1_profile_419.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/legal_l1_profile_419.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/security/priv/legal_l1_profile_419.pdf", "repo": "security", "pages": 38, "lines": 490, "is_duplicate": false, "duplicate_of": null}, {"id": 6, "title": "Базовий профіль безпеки системи відкритої або конфіденційної інформації (Наказ ДССЗЗІ № 409)", "category": "КСЗІ та профілі безпеки", "desc": "Базовий профіль безпеки L1 згідно з вимогами Держспецзв'язку для відкритих та конфіденційних державних реєстрів.", "rel_path": "security/priv/legal_l1_profile_409.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/legal_l1_profile_409.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/security/priv/legal_l1_profile_409.tex", "has_pdf": true, "pdf_rel": "security/priv/legal_l1_profile_409.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/legal_l1_profile_409.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/security/priv/legal_l1_profile_409.pdf", "repo": "security", "pages": 34, "lines": 445, "is_duplicate": false, "duplicate_of": null}, {"id": 7, "title": "КСЗІ: Політики і модель профілів безпеки Судової системи (репозиторій audit)", "category": "КСЗІ та профілі безпеки", "desc": "Архітектурний опис багаторівневої моделі безпеки судів, розмежування доступу та побудови КСЗІ.", "rel_path": "audit/security/court-security-profiles.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/security/court-security-profiles.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/security/court-security-profiles.tex", "has_pdf": true, "pdf_rel": "audit/security/court-security-profiles.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/security/court-security-profiles.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/security/court-security-profiles.pdf", "repo": "audit", "pages": 23, "lines": 702, "is_duplicate": false, "duplicate_of": null}, {"id": 8, "title": "КСЗІ: Політики і модель профілів безпеки (еталонний профіль у security)", "category": "КСЗІ та профілі безпеки", "desc": "Еталонний опис політик безпеки та моделі профілів безпеки для підготовки до державної експертизи.", "rel_path": "security/priv/security-profiles.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/security-profiles.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/security/priv/security-profiles.tex", "has_pdf": true, "pdf_rel": "security/priv/security-profiles.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/security-profiles.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/security/priv/security-profiles.pdf", "repo": "security", "pages": 21, "lines": 729, "is_duplicate": false, "duplicate_of": null}, {"id": 9, "title": "Building a Compliant Security Profile: ND TZI and NIST Certification for ERPUNO, COURT and COD", "category": "КСЗІ та профілі безпеки", "desc": "Методологія та практичний інструментарій мапування нормативних вимог НД ТЗІ України на міжнародний фреймворк NIST SP 800-53.", "rel_path": "security/priv/nist.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/nist.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/security/priv/nist.tex", "has_pdf": true, "pdf_rel": "security/priv/nist.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/nist.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/security/priv/nist.pdf", "repo": "security", "pages": 18, "lines": 423, "is_duplicate": false, "duplicate_of": null}, {"id": 10, "title": "Меморандум про взаєморозуміння між ДСА України, Держспецзв’язку та ДП «ІСС»", "category": "КСЗІ та профілі безпеки", "desc": "Тристоронній меморандум щодо гармонізації стандартів захисту інформації та модернізації кіберзахисту ЄСІКС.", "rel_path": "security/priv/memo.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/memo.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/security/priv/memo.tex", "has_pdf": true, "pdf_rel": "security/priv/memo.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/memo.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/security/priv/memo.pdf", "repo": "security", "pages": 5, "lines": 153, "is_duplicate": false, "duplicate_of": null}, {"id": 11, "title": "Проєкт модернізації: Мережева інфраструктура ЦОД (Уточнений технічний проєкт 2026)", "category": "Інфраструктура ЦОД та SRE", "desc": "Детальний технічний проєкт опорної мережі ЦОД: топологія Spine-Leaf, EVPN-VXLAN, BGP-маршрутизація, anti-DDoS, специфікація обладнання.", "rel_path": "audit/infrastructure/network-infra.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/infrastructure/network-infra.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/infrastructure/network-infra.tex", "has_pdf": true, "pdf_rel": "audit/infrastructure/network-infra.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/infrastructure/network-infra.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/infrastructure/network-infra.pdf", "repo": "audit", "pages": 104, "lines": 4155, "is_duplicate": false, "duplicate_of": null}, {"id": 12, "title": "ЄСІКС: CD/SRE Handbook — Настанови системного адміністратора для розгортання та обслуговування", "category": "Інфраструктура ЦОД та SRE", "desc": "Повний практичний посібник SRE: конвеєри CI/CD, моніторинг Prometheus/Grafana, автоматичне відновлення після збоїв та SLA.", "rel_path": "vkz/documents/sre.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/documents/sre.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/vkz/documents/sre.tex", "has_pdf": true, "pdf_rel": "vkz/documents/sre.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/documents/sre.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/vkz/documents/sre.pdf", "repo": "vkz", "pages": 47, "lines": 1822, "is_duplicate": false, "duplicate_of": null}, {"id": 13, "title": "Проєкт модернізації: Обчислювальна інфраструктура ЦОД (Технічний проєкт 2026)", "category": "Інфраструктура ЦОД та SRE", "desc": "Технічний проєкт серверних потужностей, віртуалізації KVM, відмовостійких сховищ Ceph/SAN та кластеризації.", "rel_path": "audit/infrastructure/compute-infra.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/infrastructure/compute-infra.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/infrastructure/compute-infra.tex", "has_pdf": true, "pdf_rel": "audit/infrastructure/compute-infra.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/infrastructure/compute-infra.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/infrastructure/compute-infra.pdf", "repo": "audit", "pages": 44, "lines": 1370, "is_duplicate": false, "duplicate_of": null}, {"id": 14, "title": "Технічна пропозиція: Архітектура ЦОД — Настанови системного архітектора", "category": "Інфраструктура ЦОД та SRE", "desc": "Концептуальна архітектура та історія впровадження хмарних платформ в органах сектору безпеки та юстиції.", "rel_path": "audit/infrastructure/deployment.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/infrastructure/deployment.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/infrastructure/deployment.tex", "has_pdf": true, "pdf_rel": "audit/infrastructure/deployment.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/infrastructure/deployment.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/infrastructure/deployment.pdf", "repo": "audit", "pages": 18, "lines": 763, "is_duplicate": false, "duplicate_of": null}, {"id": 15, "title": "ЄСІКС: Архітектура ЦОД (версія для підсистеми ВКЗ)", "category": "Інфраструктура ЦОД та SRE", "desc": "Архітектура кластерів розгортання та медіасерверів для забезпечення безперервної роботи відеоконференцій.", "rel_path": "vkz/documents/deployment.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/documents/deployment.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/vkz/documents/deployment.tex", "has_pdf": true, "pdf_rel": "vkz/documents/deployment.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/documents/deployment.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/vkz/documents/deployment.pdf", "repo": "vkz", "pages": 18, "lines": 764, "is_duplicate": false, "duplicate_of": null}, {"id": 16, "title": "Технічна пропозиція: Архітектура гео-розподіленої інформаційної системи правосуддя", "category": "Інфраструктура ЦОД та SRE", "desc": "Концепція стійкої роботи судів в умовах переривання зовнішнього зв’язку, розподілені локальні сховища та асинхронна реплікація.", "rel_path": "audit/infrastructure/dist.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/infrastructure/dist.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/infrastructure/dist.tex", "has_pdf": true, "pdf_rel": "audit/infrastructure/dist.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/infrastructure/dist.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/infrastructure/dist.pdf", "repo": "audit", "pages": 8, "lines": 219, "is_duplicate": false, "duplicate_of": null}, {"id": 17, "title": "Transition from Firebird 2.5.x to Firebird 5.x: Migration Guide, Cost Analysis, and Comparison with PostgreSQL", "category": "Інфраструктура ЦОД та SRE", "desc": "Аналітично-технічне керівництво з міграції застарілих локальних баз судів (Firebird) на сучасні версії та PostgreSQL з аналізом TCO.", "rel_path": "audit/infrastructure/firebird.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/infrastructure/firebird.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/infrastructure/firebird.tex", "has_pdf": true, "pdf_rel": "audit/infrastructure/firebird.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/infrastructure/firebird.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/infrastructure/firebird.pdf", "repo": "audit", "pages": 2, "lines": 100, "is_duplicate": false, "duplicate_of": null}, {"id": 18, "title": "ТВ ЄСІКС: Розділ V. Судопис — Підрозділ V-1. Справи", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до ядра судового процесу: електронний авторозподіл, етапи провадження, рух справ, колегії суддів, судові засідання.", "rel_path": "ujics/requirement/court.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/court.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/court.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/court.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/court.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/court.pdf", "repo": "ujics", "pages": 30, "lines": 752, "is_duplicate": false, "duplicate_of": null}, {"id": 19, "title": "ТВ ЄСІКС: Розділ I. Інфраструктурні сервіси — Підрозділ I-1. Інфраструктура безпеки (X.509, EUDI)", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до криптографічних сервісів, електронних довірчих послуг, підтримки КЕП/УЕП та європейських цифрових гаманців EUDI.", "rel_path": "ujics/requirement/foundations.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/foundations.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/foundations.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/foundations.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/foundations.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/foundations.pdf", "repo": "ujics", "pages": 17, "lines": 508, "is_duplicate": false, "duplicate_of": null}, {"id": 20, "title": "ТВ ЄСІКС: Розділ IV. Реєстри — Підрозділ IV-1. Виконавчі документи", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до автоматизованого формування, реєстрації, підписання та електронної передачі виконавчих документів до органів ДВС/ПВ.", "rel_path": "ujics/requirement/registries.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/registries.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/registries.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/registries.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/registries.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/registries.pdf", "repo": "ujics", "pages": 17, "lines": 298, "is_duplicate": false, "duplicate_of": null}, {"id": 21, "title": "ТВ ЄСІКС: Розділ II. Господарська діяльність — Підрозділ II-1. Бюджетне планування (BUD)", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до системи фінансово-господарського обліку судів, планування кошторисів та контролю витрат судової адміністрації.", "rel_path": "ujics/requirement/accounting.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/accounting.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/accounting.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/accounting.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/accounting.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/accounting.pdf", "repo": "ujics", "pages": 14, "lines": 443, "is_duplicate": false, "duplicate_of": null}, {"id": 22, "title": "ТВ ЄСІКС: Розділ III. Документообіг — Підрозділ III-1. Шаблони документів (DOCX, XLSX)", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до офіційного документообігу суду, шаблонізатора процесуальних рішень, журналів реєстрації та експорту.", "rel_path": "ujics/requirement/documents.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/documents.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/documents.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/documents.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/documents.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/documents.pdf", "repo": "ujics", "pages": 13, "lines": 320, "is_duplicate": false, "duplicate_of": null}, {"id": 23, "title": "ТВ ЄСІКС: Розділ VI. Суддівство — Підрозділ VI-1. Облік суддів та суддівських посад", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до підсистеми обліку суддівських кадрів, навантаження суддів, штатного розпису та суддівського самоврядування.", "rel_path": "ujics/requirement/judges.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/judges.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/judges.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/judges.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/judges.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/judges.pdf", "repo": "ujics", "pages": 10, "lines": 372, "is_duplicate": false, "duplicate_of": null}, {"id": 24, "title": "ТВ ЄСІКС: Розділ VIII. Бізнес, аналіз і звітність — Підрозділ VIII-1. Календарі та завдання", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до планувальника судових засідань, завдань апарату суду, контролю строків та формування статистичних звітів.", "rel_path": "ujics/requirement/business.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/business.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/business.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/business.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/business.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/business.pdf", "repo": "ujics", "pages": 8, "lines": 232, "is_duplicate": false, "duplicate_of": null}, {"id": 25, "title": "ТВ ЄСІКС: Розділ VIII. Бізнес, аналіз і звітність (синхронізована копія у ВКЗ)", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до бізнес-аналітики, календарів судових сесій та звітності залів ВКЗ.", "rel_path": "vkz/requirement/business.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/requirement/business.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/vkz/requirement/business.tex", "has_pdf": true, "pdf_rel": "vkz/requirement/business.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/requirement/business.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/vkz/requirement/business.pdf", "repo": "vkz", "pages": 8, "lines": 232, "is_duplicate": true, "duplicate_of": "ujics/requirement/business.tex"}, {"id": 26, "title": "ТВ ЄСІКС: Розділ X. Кабінет — Підрозділ X-1. Заяви", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до Електронного кабінету: подання позовних заяв, отримання рішень, сплата судового збору та трекінг проваджень.", "rel_path": "ujics/requirement/cabinet.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/cabinet.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/cabinet.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/cabinet.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/cabinet.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/cabinet.pdf", "repo": "ujics", "pages": 5, "lines": 138, "is_duplicate": false, "duplicate_of": null}, {"id": 27, "title": "ТВ ЄСІКС: Розділ IX. Портал — Підрозділ IX-1. Контент", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до публічного вебпорталу «Судова влада України»: публікація судових реєстрів, новин, розкладів засідань.", "rel_path": "ujics/requirement/portal.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/portal.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/portal.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/portal.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/portal.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/portal.pdf", "repo": "ujics", "pages": 5, "lines": 134, "is_duplicate": false, "duplicate_of": null}, {"id": 28, "title": "ТВ ЄСІКС: Розділ VII. Інтелектуальні сервіси — Підрозділ VII-1. Короткий зміст", "category": "Технічні вимоги (ТВ)", "desc": "Базові вимоги до автоматизованої семантичної обробки тексту та анотування судових рішень.", "rel_path": "ujics/requirement/awareness.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/awareness.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/awareness.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/awareness.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/awareness.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ujics/requirement/awareness.pdf", "repo": "ujics", "pages": 4, "lines": 116, "is_duplicate": false, "duplicate_of": null}, {"id": 29, "title": "ТВ ЄСІКС: Розділ VII. Інтелектуальні сервіси (копія у репозиторії AI)", "category": "Технічні вимоги (ТВ)", "desc": "Специфікація інтелектуальних сервісів підсистеми штучного інтелекту.", "rel_path": "ai/requirements/awareness.tex", "full_path": "/Users/tonpa/depot/uacourt/ai/requirements/awareness.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ai/requirements/awareness.tex", "has_pdf": true, "pdf_rel": "ai/requirements/awareness.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ai/requirements/awareness.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ai/requirements/awareness.pdf", "repo": "ai", "pages": 4, "lines": 116, "is_duplicate": true, "duplicate_of": "ujics/requirement/awareness.tex"}, {"id": 30, "title": "ДП «ІСС»: Лист-відповідь ЛЗІ щодо проєкту ТВ (Розширена версія з реєстром зауважень)", "category": "Аудит та експертиза", "desc": "Комплексна відповідь ДП «ІСС» з детальним посторінковим аналізом 50+ пунктів ТЗ «Локальна захищена інфраструктура».", "rel_path": "audit/audit/iam/lzi-full.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/iam/lzi-full.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/audit/iam/lzi-full.tex", "has_pdf": true, "pdf_rel": "audit/audit/iam/lzi-full.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/iam/lzi-full.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/audit/iam/lzi-full.pdf", "repo": "audit", "pages": 48, "lines": 1565, "is_duplicate": false, "duplicate_of": null}, {"id": 31, "title": "Технічний аудит ЄСІКС: Звіт про аудит підсистеми ВКЗ (Програмний стек WebRTC)", "category": "Аудит та експертиза", "desc": "Детальний технічний аудит монолітного WebRTC-стеку відеоконференцій EasyCon, виявлені вузькі місця та ризики відмов.", "rel_path": "audit/audit/vkz/audit-vkz.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/vkz/audit-vkz.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/audit/vkz/audit-vkz.tex", "has_pdf": true, "pdf_rel": "audit/audit/vkz/audit-vkz.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/vkz/audit-vkz.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/audit/vkz/audit-vkz.pdf", "repo": "audit", "pages": 8, "lines": 243, "is_duplicate": false, "duplicate_of": null}, {"id": 32, "title": "Технічний аудит ЄСІКС: Звіт про аудит підсистеми ВКЗ (копія у vkz)", "category": "Аудит та експертиза", "desc": "Синхронізована копія звіту аудиту WebRTC для команди розробників підсистеми ВКЗ.", "rel_path": "vkz/audit/audit-vkz.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/audit/audit-vkz.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/vkz/audit/audit-vkz.tex", "has_pdf": true, "pdf_rel": "audit/audit/vkz/audit-vkz.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/vkz/audit-vkz.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/audit/vkz/audit-vkz.pdf", "repo": "vkz", "pages": 8, "lines": 243, "is_duplicate": true, "duplicate_of": "audit/audit/vkz/audit-vkz.tex"}, {"id": 33, "title": "Наказ ДСА України: Про проведення аудиту інформаційної інфраструктури судів та перехід до ЄСІКС", "category": "Аудит та експертиза", "desc": "Офіційний наказ ДСА України про повну інвентаризацію IT-інфраструктури судів та дорожню карту міграції.", "rel_path": "audit/audit/dsa/dsa_order_audit_plan.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/dsa/dsa_order_audit_plan.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/audit/dsa/dsa_order_audit_plan.tex", "has_pdf": true, "pdf_rel": "audit/audit/dsa/dsa_order_audit_plan.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/dsa/dsa_order_audit_plan.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/audit/dsa/dsa_order_audit_plan.pdf", "repo": "audit", "pages": 8, "lines": 284, "is_duplicate": false, "duplicate_of": null}, {"id": 34, "title": "Доповідна записка: Аналіз Технічних вимог «Суддівське досьє»", "category": "Аудит та експертиза", "desc": "Оцінка технічної реалізованості та відповідності антикорупційному законодавству підсистеми суддівського досьє.", "rel_path": "audit/audit/judge/review-6.4.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/judge/review-6.4.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/audit/judge/review-6.4.tex", "has_pdf": true, "pdf_rel": "audit/audit/judge/review-6.4.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/judge/review-6.4.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/audit/judge/review-6.4.pdf", "repo": "audit", "pages": 7, "lines": 357, "is_duplicate": false, "duplicate_of": null}, {"id": 35, "title": "Технічні вимоги: Про неприпустимість використання JWT токенів як самостійного механізму", "category": "Аудит та експертиза", "desc": "Безпекове обґрунтування критичних недоліків JWT у державному секторі (відсутність миттєвого відкликання прав).", "rel_path": "audit/audit/iam/jwt.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/iam/jwt.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/audit/iam/jwt.tex", "has_pdf": true, "pdf_rel": "audit/audit/iam/jwt.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/iam/jwt.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/audit/iam/jwt.pdf", "repo": "audit", "pages": 6, "lines": 141, "is_duplicate": false, "duplicate_of": null}, {"id": 36, "title": "Технічні вимоги: Щодо неприпустимості OpenID Connect при наявності eIDAS/EUDI", "category": "Аудит та експертиза", "desc": "Аналіз невідповідності спрощених OpenID-схем європейським регламентам цифрових гаманців eIDAS та ДСТУ.", "rel_path": "audit/audit/iam/openid.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/iam/openid.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/audit/iam/openid.tex", "has_pdf": true, "pdf_rel": "audit/audit/iam/openid.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/iam/openid.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/audit/iam/openid.pdf", "repo": "audit", "pages": 6, "lines": 150, "is_duplicate": false, "duplicate_of": null}, {"id": 37, "title": "Доповідна записка: Критичний аналіз Технічних вимог до базових сервісів (IAM)", "category": "Аудит та експертиза", "desc": "Експертний аналіз архітектурних ризиків у вимогах до ідентифікації та централізованого управління доступом.", "rel_path": "audit/audit/iam/review-1.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/iam/review-1.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/audit/iam/review-1.tex", "has_pdf": true, "pdf_rel": "audit/audit/iam/review-1.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/iam/review-1.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/audit/iam/review-1.pdf", "repo": "audit", "pages": 6, "lines": 219, "is_duplicate": false, "duplicate_of": null}, {"id": 38, "title": "Технічні вимоги: Обґрунтування впровадження єдиного рушія BPMN та ABAC", "category": "Аудит та експертиза", "desc": "Техніко-економічне обґрунтування уніфікації бізнес-процесів судів на відкритому BPMN-рушії та динамічному ABAC.", "rel_path": "audit/audit/judge/bpmn-unity.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/judge/bpmn-unity.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/audit/judge/bpmn-unity.tex", "has_pdf": true, "pdf_rel": "audit/audit/judge/bpmn-unity.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/judge/bpmn-unity.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/audit/judge/bpmn-unity.pdf", "repo": "audit", "pages": 6, "lines": 163, "is_duplicate": false, "duplicate_of": null}, {"id": 39, "title": "ДП «ІСС»: Лист-відповідь ЛЗІ щодо проєкту Технічних вимог (Офіційний лист)", "category": "Аудит та експертиза", "desc": "Офіційний супровідний лист ДП «ІСС» щодо проєкту Технічних вимог до захищеної інфраструктури судів.", "rel_path": "audit/audit/iam/lzi.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/iam/lzi.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/audit/iam/lzi.tex", "has_pdf": true, "pdf_rel": "audit/audit/iam/lzi.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/iam/lzi.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/audit/iam/lzi.pdf", "repo": "audit", "pages": 5, "lines": 140, "is_duplicate": false, "duplicate_of": null}, {"id": 40, "title": "Аналітична довідка: Аналіз методології порівняння архітектурних підходів компанії Стрімко", "category": "Аудит та експертиза", "desc": "Критичний розбір методологічних прогалин у звіті зовнішнього підрядника ТОВ «Стрімко».", "rel_path": "audit/audit/judge/methodology-analysis.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/judge/methodology-analysis.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/audit/judge/methodology-analysis.tex", "has_pdf": true, "pdf_rel": "audit/audit/judge/methodology-analysis.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/judge/methodology-analysis.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/audit/judge/methodology-analysis.pdf", "repo": "audit", "pages": 4, "lines": 162, "is_duplicate": false, "duplicate_of": null}, {"id": 41, "title": "Протокол уточнень та пропозицій до проєкту ТВ «ЄДРВД»", "category": "Аудит та експертиза", "desc": "Офіційний протокол зауважень та правок до реєстру виконавчих документів.", "rel_path": "audit/audit/edrvd/протокол-ЄДРВД.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/edrvd/протокол-ЄДРВД.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/audit/edrvd/протокол-ЄДРВД.tex", "has_pdf": true, "pdf_rel": "audit/audit/edrvd/протокол-ЄДРВД.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/edrvd/протокол-ЄДРВД.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/audit/edrvd/протокол-ЄДРВД.pdf", "repo": "audit", "pages": 3, "lines": 155, "is_duplicate": false, "duplicate_of": null}, {"id": 42, "title": "Протокол узгодження розбіжностей до Технічних вимог ЛЗІ (Таблиця правок)", "category": "Аудит та експертиза", "desc": "Посторінкова матриця розбіжностей між початковими вимогами та узгодженою новою редакцією.", "rel_path": "audit/audit/iam/protocol-lzi.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/iam/protocol-lzi.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/audit/iam/protocol-lzi.tex", "has_pdf": true, "pdf_rel": "audit/audit/iam/protocol-lzi.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/iam/protocol-lzi.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/audit/iam/protocol-lzi.pdf", "repo": "audit", "pages": 1, "lines": 144, "is_duplicate": false, "duplicate_of": null}, {"id": 43, "title": "Посібник користувача: Підсистема відеоконференцзв’язку ЄСІКС", "category": "Підсистема ВКЗ", "desc": "Інструкція для учасників судових засідань, суддів та секретарів щодо участі у ВКЗ через веббраузер та кабінет.", "rel_path": "vkz/documents/instructions.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/documents/instructions.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/vkz/documents/instructions.tex", "has_pdf": true, "pdf_rel": "vkz/documents/instructions.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/documents/instructions.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/vkz/documents/instructions.pdf", "repo": "vkz", "pages": 8, "lines": 258, "is_duplicate": false, "duplicate_of": null}, {"id": 44, "title": "Настанови адміністратора: Адміністрування підсистеми відеоконференцзв’язку", "category": "Підсистема ВКЗ", "desc": "Інструкція системного адміністратора: мережеві порти, WebRTC медіатракти, налаштування RTMP/RTSP стрімінгу та телеметрії.", "rel_path": "vkz/documents/admin.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/documents/admin.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/vkz/documents/admin.tex", "has_pdf": true, "pdf_rel": "vkz/documents/admin.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/documents/admin.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/vkz/documents/admin.pdf", "repo": "vkz", "pages": 7, "lines": 185, "is_duplicate": false, "duplicate_of": null}, {"id": 45, "title": "Performance & Capacity of Erlang/GStreamer WebRTC Gateway", "category": "Підсистема ВКЗ", "desc": "Інженерно-математичне дослідження продуктивності: модель алокації пам'яті та ліміти одночасних судових засідань.", "rel_path": "vkz/vkz-monolith/capacity.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/vkz-monolith/capacity.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/vkz/vkz-monolith/capacity.tex", "has_pdf": true, "pdf_rel": "vkz/vkz-monolith/capacity.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/vkz-monolith/capacity.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/vkz/vkz-monolith/capacity.pdf", "repo": "vkz", "pages": 6, "lines": 147, "is_duplicate": false, "duplicate_of": null}, {"id": 46, "title": "rtp-monolith: A Shared-Nothing MCU Gateway for High-Density Video Conferencing", "category": "Підсистема ВКЗ", "desc": "Архітектурний опис розробки високонадійного автономного MCU-шлюзу відеоконференцій на базі Alpine Linux у Kubernetes.", "rel_path": "vkz/vkz-monolith/rtp.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/vkz-monolith/rtp.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/vkz/vkz-monolith/rtp.tex", "has_pdf": true, "pdf_rel": "vkz/vkz-monolith/rtp.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/vkz-monolith/rtp.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/vkz/vkz-monolith/rtp.pdf", "repo": "vkz", "pages": 5, "lines": 239, "is_duplicate": false, "duplicate_of": null}, {"id": 47, "title": "Атестаційна магістерська робота: Системи управління неструктурованими інформаційними потоками", "category": "ШІ та наукові дослідження", "desc": "Фундаментальна академічна робота (НТУУ «КПІ», каф. прикладної математики, М. Сохацький) з теорії обробки процесної інформації.", "rel_path": "bpmn/doc/msc.tex", "full_path": "/Users/tonpa/depot/uacourt/bpmn/doc/msc.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/bpmn/doc/msc.tex", "has_pdf": true, "pdf_rel": "bpmn/doc/msc.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/bpmn/doc/msc.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/bpmn/doc/msc.pdf", "repo": "bpmn", "pages": 61, "lines": 1698, "is_duplicate": false, "duplicate_of": null}, {"id": 48, "title": "ЄСІКС: Інтелектуальні сервіси — Локальна інфраструктура на базі споживчих GPU", "category": "ШІ та наукові дослідження", "desc": "Технічне та фінансове обґрунтування використання кластера локальних споживчих GPU (Nvidia RTX 4090/5090) замість Enterprise хмар.", "rel_path": "ai/requirements/ai_infra.tex", "full_path": "/Users/tonpa/depot/uacourt/ai/requirements/ai_infra.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ai/requirements/ai_infra.tex", "has_pdf": true, "pdf_rel": "ai/requirements/ai_infra.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ai/requirements/ai_infra.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ai/requirements/ai_infra.pdf", "repo": "ai", "pages": 17, "lines": 422, "is_duplicate": false, "duplicate_of": null}, {"id": 49, "title": "ЄСІКС: Інтелектуальні сервіси — Локальна обчислювальна інфраструктура (audit)", "category": "ШІ та наукові дослідження", "desc": "Архітектура розміщення та енергоспоживання GPU-серверів для ШІ-інференсу в центрі обробки даних судів.", "rel_path": "audit/infrastructure/ai.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/infrastructure/ai.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/infrastructure/ai.tex", "has_pdf": true, "pdf_rel": "audit/infrastructure/ai.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/infrastructure/ai.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/infrastructure/ai.pdf", "repo": "audit", "pages": 17, "lines": 423, "is_duplicate": false, "duplicate_of": null}, {"id": 50, "title": "ЄСІКС: Техноробочий проєкт створення локальної LLM-інфраструктури", "category": "ШІ та наукові дослідження", "desc": "Повний техноробочий проєкт інтеграції мовних моделей у судове діловодство для швидкого семантичного аналізу документів.", "rel_path": "ai/implementation/ai_pro.tex", "full_path": "/Users/tonpa/depot/uacourt/ai/implementation/ai_pro.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ai/implementation/ai_pro.tex", "has_pdf": true, "pdf_rel": "ai/implementation/ai_pro.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ai/implementation/ai_pro.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ai/implementation/ai_pro.pdf", "repo": "ai", "pages": 11, "lines": 417, "is_duplicate": false, "duplicate_of": null}, {"id": 51, "title": "ЄСІКС: Технічні вимоги — Локальна LLM-інфраструктура для аналізу та оцінки істотності", "category": "ШІ та наукові дослідження", "desc": "ТВ до архітектури RAG, безпеки збереження правової таємниці, якості контекстних відповідей та інференсу.", "rel_path": "ai/requirements/ai.tex", "full_path": "/Users/tonpa/depot/uacourt/ai/requirements/ai.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ai/requirements/ai.tex", "has_pdf": true, "pdf_rel": "ai/requirements/ai.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ai/requirements/ai.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ai/requirements/ai.pdf", "repo": "ai", "pages": 11, "lines": 274, "is_duplicate": false, "duplicate_of": null}, {"id": 52, "title": "Наукова праця: Математична модель оцінки впливу нової редакції норми права на єдність судової практики", "category": "ШІ та наукові дослідження", "desc": "Наукова стаття (КПІ, М. Сохацький) щодо оцінки впливу змін ч. 2 ст. 61 Кодексу з процедур банкрутства на єдність судових рішень.", "rel_path": "audit/audit/llm/justice-llm.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/llm/justice-llm.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/audit/llm/justice-llm.tex", "has_pdf": true, "pdf_rel": "audit/audit/llm/justice-llm.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/llm/justice-llm.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/audit/llm/justice-llm.pdf", "repo": "audit", "pages": 3, "lines": 108, "is_duplicate": false, "duplicate_of": null}, {"id": 53, "title": "Політики Технічних вимог, Технічного завдання і Технічної Документації ЄСІКС", "category": "OKR, політики та регламенти", "desc": "Єдині корпоративні правила та стандарти складання, версіонування та погодження технічної документації системи.", "rel_path": "ujics/policy/policy.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/policy/policy.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ujics/policy/policy.tex", "has_pdf": true, "pdf_rel": "ujics/policy/policy.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/policy/policy.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ujics/policy/policy.pdf", "repo": "ujics", "pages": 32, "lines": 1127, "is_duplicate": false, "duplicate_of": null}, {"id": 54, "title": "Політики Технічних вимог та документації (репозиторій vkz)", "category": "OKR, політики та регламенти", "desc": "Стандарти якості, стилю та структури технічної документації підсистеми відеоконференцзв'язку.", "rel_path": "vkz/policy/policy.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/policy/policy.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/vkz/policy/policy.tex", "has_pdf": true, "pdf_rel": "vkz/policy/policy.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/policy/policy.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/vkz/policy/policy.pdf", "repo": "vkz", "pages": 31, "lines": 1112, "is_duplicate": false, "duplicate_of": null}, {"id": 55, "title": "ДП «ІСС» — Політики Технічних Вимог та Технічного Завдання (CRM-pro)", "category": "OKR, політики та регламенти", "desc": "Політики та регламенти розробки CRM-підсистеми та протоколів взаємодії сервісів.", "rel_path": "crm-pro/policy.tex", "full_path": "/Users/tonpa/depot/uacourt/crm-pro/policy.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/crm-pro/policy.tex", "has_pdf": true, "pdf_rel": "crm-pro/policy.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/crm-pro/policy.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/crm-pro/policy.pdf", "repo": "crm-pro", "pages": 25, "lines": 947, "is_duplicate": false, "duplicate_of": null}, {"id": 56, "title": "Цілі та ключові результати (OKR): Програма модернізації ЄСІКС", "category": "OKR, політики та регламенти", "desc": "Стратегічний план реформування та метрики модернізації судових підсистем за квартальною методологією OKR.", "rel_path": "ujics/okr/okr.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/okr/okr.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ujics/okr/okr.tex", "has_pdf": true, "pdf_rel": "ujics/okr/okr.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/okr/okr.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ujics/okr/okr.pdf", "repo": "ujics", "pages": 25, "lines": 988, "is_duplicate": false, "duplicate_of": null}, {"id": 57, "title": "Цілі та ключові результати (OKR): Програма модернізації ЄСІКС (копія vkz)", "category": "OKR, політики та регламенти", "desc": "Синхронізовані стратегічні цілі модернізації ВКЗ у загальній програмі оновлення ЄСІКС.", "rel_path": "vkz/okr/okr.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/okr/okr.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/vkz/okr/okr.tex", "has_pdf": true, "pdf_rel": "vkz/okr/okr.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/okr/okr.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/vkz/okr/okr.pdf", "repo": "vkz", "pages": 25, "lines": 988, "is_duplicate": true, "duplicate_of": "ujics/okr/okr.tex"}, {"id": 58, "title": "Регламент проєктного планування ДП «Інформаційні судові системи»", "category": "OKR, політики та регламенти", "desc": "Офіційний регламент повного циклу розробки ПЗ (SDLC), управління релізами, тестування та супроводу систем.", "rel_path": "ujics/management/management.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/management/management.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/ujics/management/management.tex", "has_pdf": true, "pdf_rel": "ujics/management/management.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/management/management.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/ujics/management/management.pdf", "repo": "ujics", "pages": 16, "lines": 498, "is_duplicate": false, "duplicate_of": null}, {"id": 59, "title": "Тендерна документація: Додаток 2 — Технічні вимоги до створення КСЗІ", "category": "Тендери та накази ДП «ІСС»", "desc": "Тендерні вимоги до робіт зі створення КСЗІ обчислювальної мережі та підсистем ЄСІКС.", "rel_path": "audit/security/SJA_Додаток_2_Технічні_вимоги.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/security/SJA_Додаток_2_Технічні_вимоги.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/security/SJA_Додаток_2_Технічні_вимоги.tex", "has_pdf": true, "pdf_rel": "audit/security/SJA_Додаток_2_Технічні_вимоги.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/security/SJA_Додаток_2_Технічні_вимоги.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/security/SJA_Додаток_2_Технічні_вимоги.pdf", "repo": "audit", "pages": 11, "lines": 377, "is_duplicate": false, "duplicate_of": null}, {"id": 60, "title": "Тендерна документація: Додаток 2 (копія в security)", "category": "Тендери та накази ДП «ІСС»", "desc": "Тендерні вимоги до підрядника зі створення комплексної системи захисту.", "rel_path": "security/priv/SJA_Додаток_2_Технічні_вимоги.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/SJA_Додаток_2_Технічні_вимоги.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/security/priv/SJA_Додаток_2_Технічні_вимоги.tex", "has_pdf": true, "pdf_rel": "security/priv/SJA_Додаток_2_Технічні_вимоги.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/SJA_Додаток_2_Технічні_вимоги.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/security/priv/SJA_Додаток_2_Технічні_вимоги.pdf", "repo": "security", "pages": 11, "lines": 377, "is_duplicate": true, "duplicate_of": "audit/security/SJA_Додаток_2_Технічні_вимоги.tex"}, {"id": 61, "title": "Тендерна документація: Додаток 3 — Проєкт договору на створення КСЗІ", "category": "Тендери та накази ДП «ІСС»", "desc": "Типовий договір надання послуг з побудови, налаштування та атестації комплексної системи захисту.", "rel_path": "audit/security/SJA_Додаток_3_Договір.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/security/SJA_Додаток_3_Договір.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/security/SJA_Додаток_3_Договір.tex", "has_pdf": true, "pdf_rel": "audit/security/SJA_Додаток_3_Договір.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/security/SJA_Додаток_3_Договір.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/security/SJA_Додаток_3_Договір.pdf", "repo": "audit", "pages": 6, "lines": 174, "is_duplicate": false, "duplicate_of": null}, {"id": 62, "title": "Тендерна документація: Додаток 3 (копія в security)", "category": "Тендери та накази ДП «ІСС»", "desc": "Проєкт договору про закупівлю послуг КСЗІ.", "rel_path": "security/priv/SJA_Додаток_3_Договір.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/SJA_Додаток_3_Договір.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/security/priv/SJA_Додаток_3_Договір.tex", "has_pdf": true, "pdf_rel": "security/priv/SJA_Додаток_3_Договір.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/SJA_Додаток_3_Договір.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/security/priv/SJA_Додаток_3_Договір.pdf", "repo": "security", "pages": 6, "lines": 174, "is_duplicate": true, "duplicate_of": "audit/security/SJA_Додаток_3_Договір.tex"}, {"id": 63, "title": "Наказ ДП «ІСС»: Про визначення адміністраторів", "category": "Тендери та накази ДП «ІСС»", "desc": "Розпорядчий наказ про призначення відповідальних адміністраторів компонентів та підсистем.", "rel_path": "audit/templates/order_admin_appointment.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/templates/order_admin_appointment.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/templates/order_admin_appointment.tex", "has_pdf": true, "pdf_rel": "audit/templates/order_admin_appointment.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/templates/order_admin_appointment.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/templates/order_admin_appointment.pdf", "repo": "audit", "pages": 4, "lines": 191, "is_duplicate": false, "duplicate_of": null}, {"id": 64, "title": "Наказ ДП «ІСС»: Про розподіл відповідальності, прав та обов’язків адміністраторів ЄСІКС", "category": "Тендери та накази ДП «ІСС»", "desc": "Положення про права та обов’язки системних адміністраторів, захист інформації та безпеку сесій.", "rel_path": "audit/templates/order_at_ir_ma_ps_pe.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/templates/order_at_ir_ma_ps_pe.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/templates/order_at_ir_ma_ps_pe.tex", "has_pdf": true, "pdf_rel": "audit/templates/order_at_ir_ma_ps_pe.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/templates/order_at_ir_ma_ps_pe.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/templates/order_at_ir_ma_ps_pe.pdf", "repo": "audit", "pages": 4, "lines": 124, "is_duplicate": false, "duplicate_of": null}, {"id": 65, "title": "Наказ ДП «ІСС»: Про організацію робіт із розробки та впровадження КСЗІ", "category": "Тендери та накази ДП «ІСС»", "desc": "Наказ про запуск робіт з проєктування та проходження державної експертизи КСЗІ.", "rel_path": "audit/templates/order_kszi_development.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/templates/order_kszi_development.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/templates/order_kszi_development.tex", "has_pdf": true, "pdf_rel": "audit/templates/order_kszi_development.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/templates/order_kszi_development.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/templates/order_kszi_development.pdf", "repo": "audit", "pages": 3, "lines": 113, "is_duplicate": false, "duplicate_of": null}, {"id": 66, "title": "Наказ ДП «ІСС»: Про створення Служби захисту інформації (СЗІ)", "category": "Тендери та накази ДП «ІСС»", "desc": "Організаційний наказ про формування штатної служби захисту інформації Підприємства згідно з НД ТЗІ.", "rel_path": "audit/templates/order_szi_establishment.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/templates/order_szi_establishment.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/templates/order_szi_establishment.tex", "has_pdf": true, "pdf_rel": "audit/templates/order_szi_establishment.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/templates/order_szi_establishment.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/templates/order_szi_establishment.pdf", "repo": "audit", "pages": 3, "lines": 107, "is_duplicate": false, "duplicate_of": null}, {"id": 67, "title": "Наказ ДП «ІСС»: Про порядок фізичного доступу до серверної кімнати ЦОД", "category": "Тендери та накази ДП «ІСС»", "desc": "Режимний наказ про правила допуску до дата-центру та захист фізичного периметра серверних шаф.", "rel_path": "audit/templates/order_physical_access.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/templates/order_physical_access.tex", "tex_url": "file:///Users/tonpa/depot/uacourt/audit/templates/order_physical_access.tex", "has_pdf": true, "pdf_rel": "audit/templates/order_physical_access.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/templates/order_physical_access.pdf", "pdf_url": "file:///Users/tonpa/depot/uacourt/audit/templates/order_physical_access.pdf", "repo": "audit", "pages": 2, "lines": 137, "is_duplicate": false, "duplicate_of": null}];
+    const DOCS = [{"id": 1, "title": "Комплексна система захисту інформації: Повний каталог заходів із захисту інформації (1123 заходи захисту за НД ТЗІ / NIST SP 800-53)", "category": "КСЗІ та профілі безпеки", "desc": "Фундаментальний каталог 1123 контролів безпеки та заходів ТЗІ для судових систем. Включає детальні матриці для атестації та аудиту.", "rel_path": "security/priv/bible_profile.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/bible_profile.tex", "tex_url": "https://github.com/uacourt/security/blob/main/priv/bible_profile.tex", "has_pdf": true, "pdf_rel": "security/priv/bible_profile.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/bible_profile.pdf", "pdf_url": "https://github.com/uacourt/security/blob/main/priv/bible_profile.pdf", "repo": "security", "pages": 436, "lines": 42431, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 2, "title": "ЄСІКС «Судова Система України»: Цільовий профіль безпеки UA.47850061.СЗІ.ДП-82", "category": "КСЗІ та профілі безпеки", "desc": "Офіційний нормативний профіль безпеки найвищого рівня L3 для автоматизованих систем судів загальної юрисдикції.", "rel_path": "security/priv/legal_l3_profile_court.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/legal_l3_profile_court.tex", "tex_url": "https://github.com/uacourt/security/blob/main/priv/legal_l3_profile_court.tex", "has_pdf": true, "pdf_rel": "security/priv/legal_l3_profile_court.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/legal_l3_profile_court.pdf", "pdf_url": "https://github.com/uacourt/security/blob/main/priv/legal_l3_profile_court.pdf", "repo": "security", "pages": 109, "lines": 958, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 3, "title": "ЄСІКС «Центр обробки даних (ЦОД)»: Цільовий профіль безпеки UA.47850061.СЗІ.ДП-16", "category": "КСЗІ та профілі безпеки", "desc": "Нормативний цільовий профіль безпеки рівня L3 для центрального дата-центру судової влади України.", "rel_path": "security/priv/legal_l3_profile_cod.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/legal_l3_profile_cod.tex", "tex_url": "https://github.com/uacourt/security/blob/main/priv/legal_l3_profile_cod.tex", "has_pdf": true, "pdf_rel": "security/priv/legal_l3_profile_cod.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/legal_l3_profile_cod.pdf", "pdf_url": "https://github.com/uacourt/security/blob/main/priv/legal_l3_profile_cod.pdf", "repo": "security", "pages": 103, "lines": 900, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 4, "title": "Галузевий профіль безпеки судової системи (хмарні послуги та послуги ЦОД)", "category": "КСЗІ та профілі безпеки", "desc": "Галузевий нормативний профіль безпеки рівня L2 для хмарних сервісів та ЦОД судової влади при взаємодії з публічними реєстрами.", "rel_path": "security/priv/legal_l2_court_profile.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/legal_l2_court_profile.tex", "tex_url": "https://github.com/uacourt/security/blob/main/priv/legal_l2_court_profile.tex", "has_pdf": true, "pdf_rel": "security/priv/legal_l2_court_profile.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/legal_l2_court_profile.pdf", "pdf_url": "https://github.com/uacourt/security/blob/main/priv/legal_l2_court_profile.pdf", "repo": "security", "pages": 41, "lines": 521, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 5, "title": "Базовий профіль безпеки системи службової інформації (Наказ ДССЗЗІ № 419)", "category": "КСЗІ та профілі безпеки", "desc": "Державний базовий нормативний профіль безпеки рівня L1 для систем, де циркулює службова інформація («ДСК»).", "rel_path": "security/priv/legal_l1_profile_419.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/legal_l1_profile_419.tex", "tex_url": "https://github.com/uacourt/security/blob/main/priv/legal_l1_profile_419.tex", "has_pdf": true, "pdf_rel": "security/priv/legal_l1_profile_419.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/legal_l1_profile_419.pdf", "pdf_url": "https://github.com/uacourt/security/blob/main/priv/legal_l1_profile_419.pdf", "repo": "security", "pages": 38, "lines": 490, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 6, "title": "Базовий профіль безпеки системи відкритої або конфіденційної інформації (Наказ ДССЗЗІ № 409)", "category": "КСЗІ та профілі безпеки", "desc": "Базовий профіль безпеки L1 згідно з вимогами Держспецзв'язку для відкритих та конфіденційних державних реєстрів.", "rel_path": "security/priv/legal_l1_profile_409.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/legal_l1_profile_409.tex", "tex_url": "https://github.com/uacourt/security/blob/main/priv/legal_l1_profile_409.tex", "has_pdf": true, "pdf_rel": "security/priv/legal_l1_profile_409.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/legal_l1_profile_409.pdf", "pdf_url": "https://github.com/uacourt/security/blob/main/priv/legal_l1_profile_409.pdf", "repo": "security", "pages": 34, "lines": 445, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 7, "title": "КСЗІ: Політики і модель профілів безпеки Судової системи (репозиторій audit)", "category": "КСЗІ та профілі безпеки", "desc": "Архітектурний опис багаторівневої моделі безпеки судів, розмежування доступу та побудови КСЗІ.", "rel_path": "audit/security/court-security-profiles.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/security/court-security-profiles.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/security/court-security-profiles.tex", "has_pdf": true, "pdf_rel": "audit/security/court-security-profiles.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/security/court-security-profiles.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/security/court-security-profiles.pdf", "repo": "audit", "pages": 23, "lines": 702, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 8, "title": "КСЗІ: Політики і модель профілів безпеки (еталонний профіль у security)", "category": "КСЗІ та профілі безпеки", "desc": "Еталонний опис політик безпеки та моделі профілів безпеки для підготовки до державної експертизи.", "rel_path": "security/priv/security-profiles.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/security-profiles.tex", "tex_url": "https://github.com/uacourt/security/blob/main/priv/security-profiles.tex", "has_pdf": true, "pdf_rel": "security/priv/security-profiles.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/security-profiles.pdf", "pdf_url": "https://github.com/uacourt/security/blob/main/priv/security-profiles.pdf", "repo": "security", "pages": 21, "lines": 729, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 9, "title": "Building a Compliant Security Profile: ND TZI and NIST Certification for ERPUNO, COURT and COD", "category": "КСЗІ та профілі безпеки", "desc": "Методологія та практичний інструментарій мапування нормативних вимог НД ТЗІ України на міжнародний фреймворк NIST SP 800-53.", "rel_path": "security/priv/nist.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/nist.tex", "tex_url": "https://github.com/uacourt/security/blob/main/priv/nist.tex", "has_pdf": true, "pdf_rel": "security/priv/nist.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/nist.pdf", "pdf_url": "https://github.com/uacourt/security/blob/main/priv/nist.pdf", "repo": "security", "pages": 18, "lines": 423, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 10, "title": "Меморандум про взаєморозуміння між ДСА України, Держспецзв’язку та ДП «ІСС»", "category": "КСЗІ та профілі безпеки", "desc": "Тристоронній меморандум щодо гармонізації стандартів захисту інформації та модернізації кіберзахисту ЄСІКС.", "rel_path": "security/priv/memo.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/memo.tex", "tex_url": "https://github.com/uacourt/security/blob/main/priv/memo.tex", "has_pdf": true, "pdf_rel": "security/priv/memo.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/memo.pdf", "pdf_url": "https://github.com/uacourt/security/blob/main/priv/memo.pdf", "repo": "security", "pages": 5, "lines": 153, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 11, "title": "Проєкт модернізації: Мережева інфраструктура ЦОД (Уточнений технічний проєкт 2026)", "category": "Інфраструктура ЦОД та SRE", "desc": "Детальний технічний проєкт опорної мережі ЦОД: топологія Spine-Leaf, EVPN-VXLAN, BGP-маршрутизація, anti-DDoS, специфікація обладнання.", "rel_path": "audit/infrastructure/network-infra.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/infrastructure/network-infra.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/infrastructure/network-infra.tex", "has_pdf": true, "pdf_rel": "audit/infrastructure/network-infra.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/infrastructure/network-infra.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/infrastructure/network-infra.pdf", "repo": "audit", "pages": 104, "lines": 4155, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 12, "title": "ЄСІКС: CD/SRE Handbook — Настанови системного адміністратора для розгортання та обслуговування", "category": "Інфраструктура ЦОД та SRE", "desc": "Повний практичний посібник SRE: конвеєри CI/CD, моніторинг Prometheus/Grafana, автоматичне відновлення після збоїв та SLA.", "rel_path": "vkz/documents/sre.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/documents/sre.tex", "tex_url": "https://github.com/uacourt/vkz/blob/main/documents/sre.tex", "has_pdf": true, "pdf_rel": "vkz/documents/sre.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/documents/sre.pdf", "pdf_url": "https://uacourt.github.io/vkz/documents/sre.pdf", "repo": "vkz", "pages": 47, "lines": 1822, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 13, "title": "Проєкт модернізації: Обчислювальна інфраструктура ЦОД (Технічний проєкт 2026)", "category": "Інфраструктура ЦОД та SRE", "desc": "Технічний проєкт серверних потужностей, віртуалізації KVM, відмовостійких сховищ Ceph/SAN та кластеризації.", "rel_path": "audit/infrastructure/compute-infra.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/infrastructure/compute-infra.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/infrastructure/compute-infra.tex", "has_pdf": true, "pdf_rel": "audit/infrastructure/compute-infra.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/infrastructure/compute-infra.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/infrastructure/compute-infra.pdf", "repo": "audit", "pages": 44, "lines": 1370, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 14, "title": "Технічна пропозиція: Архітектура ЦОД — Настанови системного архітектора", "category": "Інфраструктура ЦОД та SRE", "desc": "Концептуальна архітектура та історія впровадження хмарних платформ в органах сектору безпеки та юстиції.", "rel_path": "audit/infrastructure/deployment.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/infrastructure/deployment.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/infrastructure/deployment.tex", "has_pdf": true, "pdf_rel": "audit/infrastructure/deployment.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/infrastructure/deployment.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/infrastructure/deployment.pdf", "repo": "audit", "pages": 18, "lines": 763, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 15, "title": "ЄСІКС: Архітектура ЦОД (версія для підсистеми ВКЗ)", "category": "Інфраструктура ЦОД та SRE", "desc": "Архітектура кластерів розгортання та медіасерверів для забезпечення безперервної роботи відеоконференцій.", "rel_path": "vkz/documents/deployment.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/documents/deployment.tex", "tex_url": "https://github.com/uacourt/vkz/blob/main/documents/deployment.tex", "has_pdf": true, "pdf_rel": "vkz/documents/deployment.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/documents/deployment.pdf", "pdf_url": "https://uacourt.github.io/vkz/documents/deployment.pdf", "repo": "vkz", "pages": 18, "lines": 764, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 16, "title": "Технічна пропозиція: Архітектура гео-розподіленої інформаційної системи правосуддя", "category": "Інфраструктура ЦОД та SRE", "desc": "Концепція стійкої роботи судів в умовах переривання зовнішнього зв’язку, розподілені локальні сховища та асинхронна реплікація.", "rel_path": "audit/infrastructure/dist.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/infrastructure/dist.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/infrastructure/dist.tex", "has_pdf": true, "pdf_rel": "audit/infrastructure/dist.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/infrastructure/dist.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/infrastructure/dist.pdf", "repo": "audit", "pages": 8, "lines": 219, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 17, "title": "Transition from Firebird 2.5.x to Firebird 5.x: Migration Guide, Cost Analysis, and Comparison with PostgreSQL", "category": "Інфраструктура ЦОД та SRE", "desc": "Аналітично-технічне керівництво з міграції застарілих локальних баз судів (Firebird) на сучасні версії та PostgreSQL з аналізом TCO.", "rel_path": "audit/infrastructure/firebird.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/infrastructure/firebird.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/infrastructure/firebird.tex", "has_pdf": true, "pdf_rel": "audit/infrastructure/firebird.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/infrastructure/firebird.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/infrastructure/firebird.pdf", "repo": "audit", "pages": 2, "lines": 100, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 18, "title": "ТВ ЄСІКС: Розділ V. Судопис — Підрозділ V-1. Справи", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до ядра судового процесу: електронний авторозподіл, етапи провадження, рух справ, колегії суддів, судові засідання.", "rel_path": "ujics/requirement/court.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/court.tex", "tex_url": "https://github.com/uacourt/ujics/blob/main/requirement/court.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/court.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/court.pdf", "pdf_url": "https://uacourt.github.io/ujics/requirement/court.pdf", "repo": "ujics", "pages": 30, "lines": 752, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 19, "title": "ТВ ЄСІКС: Розділ I. Інфраструктурні сервіси — Підрозділ I-1. Інфраструктура безпеки (X.509, EUDI)", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до криптографічних сервісів, електронних довірчих послуг, підтримки КЕП/УЕП та європейських цифрових гаманців EUDI.", "rel_path": "ujics/requirement/foundations.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/foundations.tex", "tex_url": "https://github.com/uacourt/ujics/blob/main/requirement/foundations.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/foundations.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/foundations.pdf", "pdf_url": "https://uacourt.github.io/ujics/requirement/foundations.pdf", "repo": "ujics", "pages": 17, "lines": 508, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 20, "title": "ТВ ЄСІКС: Розділ IV. Реєстри — Підрозділ IV-1. Виконавчі документи", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до автоматизованого формування, реєстрації, підписання та електронної передачі виконавчих документів до органів ДВС/ПВ.", "rel_path": "ujics/requirement/registries.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/registries.tex", "tex_url": "https://github.com/uacourt/ujics/blob/main/requirement/registries.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/registries.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/registries.pdf", "pdf_url": "https://uacourt.github.io/ujics/requirement/registries.pdf", "repo": "ujics", "pages": 17, "lines": 298, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 21, "title": "ТВ ЄСІКС: Розділ II. Господарська діяльність — Підрозділ II-1. Бюджетне планування (BUD)", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до системи фінансово-господарського обліку судів, планування кошторисів та контролю витрат судової адміністрації.", "rel_path": "ujics/requirement/accounting.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/accounting.tex", "tex_url": "https://github.com/uacourt/ujics/blob/main/requirement/accounting.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/accounting.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/accounting.pdf", "pdf_url": "https://uacourt.github.io/ujics/requirement/accounting.pdf", "repo": "ujics", "pages": 14, "lines": 443, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 22, "title": "ТВ ЄСІКС: Розділ III. Документообіг — Підрозділ III-1. Шаблони документів (DOCX, XLSX)", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до офіційного документообігу суду, шаблонізатора процесуальних рішень, журналів реєстрації та експорту.", "rel_path": "ujics/requirement/documents.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/documents.tex", "tex_url": "https://github.com/uacourt/ujics/blob/main/requirement/documents.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/documents.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/documents.pdf", "pdf_url": "https://uacourt.github.io/ujics/requirement/documents.pdf", "repo": "ujics", "pages": 13, "lines": 320, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 23, "title": "ТВ ЄСІКС: Розділ VI. Суддівство — Підрозділ VI-1. Облік суддів та суддівських посад", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до підсистеми обліку суддівських кадрів, навантаження суддів, штатного розпису та суддівського самоврядування.", "rel_path": "ujics/requirement/judges.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/judges.tex", "tex_url": "https://github.com/uacourt/ujics/blob/main/requirement/judges.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/judges.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/judges.pdf", "pdf_url": "https://uacourt.github.io/ujics/requirement/judges.pdf", "repo": "ujics", "pages": 10, "lines": 372, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 24, "title": "ТВ ЄСІКС: Розділ VIII. Бізнес, аналіз і звітність — Підрозділ VIII-1. Календарі та завдання", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до планувальника судових засідань, завдань апарату суду, контролю строків та формування статистичних звітів.", "rel_path": "ujics/requirement/business.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/business.tex", "tex_url": "https://github.com/uacourt/ujics/blob/main/requirement/business.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/business.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/business.pdf", "pdf_url": "https://uacourt.github.io/ujics/requirement/business.pdf", "repo": "ujics", "pages": 8, "lines": 232, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 25, "title": "ТВ ЄСІКС: Розділ VIII. Бізнес, аналіз і звітність (синхронізована копія у ВКЗ)", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до бізнес-аналітики, календарів судових сесій та звітності залів ВКЗ.", "rel_path": "vkz/requirement/business.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/requirement/business.tex", "tex_url": "https://github.com/uacourt/vkz/blob/main/requirement/business.tex", "has_pdf": true, "pdf_rel": "vkz/requirement/business.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/requirement/business.pdf", "pdf_url": "https://uacourt.github.io/vkz/requirement/business.pdf", "repo": "vkz", "pages": 8, "lines": 232, "is_duplicate": true, "duplicate_of": "ujics/requirement/business.tex", "verified_target": "uacourt.github.io"}, {"id": 26, "title": "ТВ ЄСІКС: Розділ X. Кабінет — Підрозділ X-1. Заяви", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до Електронного кабінету: подання позовних заяв, отримання рішень, сплата судового збору та трекінг проваджень.", "rel_path": "ujics/requirement/cabinet.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/cabinet.tex", "tex_url": "https://github.com/uacourt/ujics/blob/main/requirement/cabinet.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/cabinet.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/cabinet.pdf", "pdf_url": "https://uacourt.github.io/ujics/requirement/cabinet.pdf", "repo": "ujics", "pages": 5, "lines": 138, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 27, "title": "ТВ ЄСІКС: Розділ IX. Портал — Підрозділ IX-1. Контент", "category": "Технічні вимоги (ТВ)", "desc": "Вимоги до публічного вебпорталу «Судова влада України»: публікація судових реєстрів, новин, розкладів засідань.", "rel_path": "ujics/requirement/portal.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/portal.tex", "tex_url": "https://github.com/uacourt/ujics/blob/main/requirement/portal.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/portal.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/portal.pdf", "pdf_url": "https://uacourt.github.io/ujics/requirement/portal.pdf", "repo": "ujics", "pages": 5, "lines": 134, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 28, "title": "ТВ ЄСІКС: Розділ VII. Інтелектуальні сервіси — Підрозділ VII-1. Короткий зміст", "category": "Технічні вимоги (ТВ)", "desc": "Базові вимоги до автоматизованої семантичної обробки тексту та анотування судових рішень.", "rel_path": "ujics/requirement/awareness.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/requirement/awareness.tex", "tex_url": "https://github.com/uacourt/ujics/blob/main/requirement/awareness.tex", "has_pdf": true, "pdf_rel": "ujics/requirement/awareness.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/requirement/awareness.pdf", "pdf_url": "https://uacourt.github.io/ujics/requirement/awareness.pdf", "repo": "ujics", "pages": 4, "lines": 116, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 29, "title": "ТВ ЄСІКС: Розділ VII. Інтелектуальні сервіси (копія у репозиторії AI)", "category": "Технічні вимоги (ТВ)", "desc": "Специфікація інтелектуальних сервісів підсистеми штучного інтелекту.", "rel_path": "ai/requirements/awareness.tex", "full_path": "/Users/tonpa/depot/uacourt/ai/requirements/awareness.tex", "tex_url": "https://github.com/uacourt/ai/blob/main/requirements/awareness.tex", "has_pdf": true, "pdf_rel": "ai/requirements/awareness.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ai/requirements/awareness.pdf", "pdf_url": "https://uacourt.github.io/ai/requirements/awareness.pdf", "repo": "ai", "pages": 4, "lines": 116, "is_duplicate": true, "duplicate_of": "ujics/requirement/awareness.tex", "verified_target": "uacourt.github.io"}, {"id": 30, "title": "ДП «ІСС»: Лист-відповідь ЛЗІ щодо проєкту ТВ (Розширена версія з реєстром зауважень)", "category": "Аудит та експертиза", "desc": "Комплексна відповідь ДП «ІСС» з детальним посторінковим аналізом 50+ пунктів ТЗ «Локальна захищена інфраструктура».", "rel_path": "audit/audit/iam/lzi-full.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/iam/lzi-full.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/audit/iam/lzi-full.tex", "has_pdf": true, "pdf_rel": "audit/audit/iam/lzi-full.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/iam/lzi-full.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/audit/iam/lzi-full.pdf", "repo": "audit", "pages": 48, "lines": 1565, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 31, "title": "Технічний аудит ЄСІКС: Звіт про аудит підсистеми ВКЗ (Програмний стек WebRTC)", "category": "Аудит та експертиза", "desc": "Детальний технічний аудит монолітного WebRTC-стеку відеоконференцій EasyCon, виявлені вузькі місця та ризики відмов.", "rel_path": "audit/audit/vkz/audit-vkz.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/vkz/audit-vkz.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/audit/vkz/audit-vkz.tex", "has_pdf": true, "pdf_rel": "audit/audit/vkz/audit-vkz.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/vkz/audit-vkz.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/audit/vkz/audit-vkz.pdf", "repo": "audit", "pages": 8, "lines": 243, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 32, "title": "Технічний аудит ЄСІКС: Звіт про аудит підсистеми ВКЗ (копія у vkz)", "category": "Аудит та експертиза", "desc": "Синхронізована копія звіту аудиту WebRTC для команди розробників підсистеми ВКЗ.", "rel_path": "vkz/audit/audit-vkz.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/audit/audit-vkz.tex", "tex_url": "https://github.com/uacourt/vkz/blob/main/audit/audit-vkz.tex", "has_pdf": true, "pdf_rel": "audit/audit/vkz/audit-vkz.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/vkz/audit-vkz.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/audit/vkz/audit-vkz.pdf", "repo": "vkz", "pages": 8, "lines": 243, "is_duplicate": true, "duplicate_of": "audit/audit/vkz/audit-vkz.tex", "verified_target": "uacourt.github.io"}, {"id": 33, "title": "Наказ ДСА України: Про проведення аудиту інформаційної інфраструктури судів та перехід до ЄСІКС", "category": "Аудит та експертиза", "desc": "Офіційний наказ ДСА України про повну інвентаризацію IT-інфраструктури судів та дорожню карту міграції.", "rel_path": "audit/audit/dsa/dsa_order_audit_plan.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/dsa/dsa_order_audit_plan.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/audit/dsa/dsa_order_audit_plan.tex", "has_pdf": true, "pdf_rel": "audit/audit/dsa/dsa_order_audit_plan.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/dsa/dsa_order_audit_plan.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/audit/dsa/dsa_order_audit_plan.pdf", "repo": "audit", "pages": 8, "lines": 284, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 34, "title": "Доповідна записка: Аналіз Технічних вимог «Суддівське досьє»", "category": "Аудит та експертиза", "desc": "Оцінка технічної реалізованості та відповідності антикорупційному законодавству підсистеми суддівського досьє.", "rel_path": "audit/audit/judge/review-6.4.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/judge/review-6.4.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/audit/judge/review-6.4.tex", "has_pdf": true, "pdf_rel": "audit/audit/judge/review-6.4.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/judge/review-6.4.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/audit/judge/review-6.4.pdf", "repo": "audit", "pages": 7, "lines": 357, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 35, "title": "Технічні вимоги: Про неприпустимість використання JWT токенів як самостійного механізму", "category": "Аудит та експертиза", "desc": "Безпекове обґрунтування критичних недоліків JWT у державному секторі (відсутність миттєвого відкликання прав).", "rel_path": "audit/audit/iam/jwt.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/iam/jwt.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/audit/iam/jwt.tex", "has_pdf": true, "pdf_rel": "audit/audit/iam/jwt.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/iam/jwt.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/audit/iam/jwt.pdf", "repo": "audit", "pages": 6, "lines": 141, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 36, "title": "Технічні вимоги: Щодо неприпустимості OpenID Connect при наявності eIDAS/EUDI", "category": "Аудит та експертиза", "desc": "Аналіз невідповідності спрощених OpenID-схем європейським регламентам цифрових гаманців eIDAS та ДСТУ.", "rel_path": "audit/audit/iam/openid.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/iam/openid.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/audit/iam/openid.tex", "has_pdf": true, "pdf_rel": "audit/audit/iam/openid.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/iam/openid.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/audit/iam/openid.pdf", "repo": "audit", "pages": 6, "lines": 150, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 37, "title": "Доповідна записка: Критичний аналіз Технічних вимог до базових сервісів (IAM)", "category": "Аудит та експертиза", "desc": "Експертний аналіз архітектурних ризиків у вимогах до ідентифікації та централізованого управління доступом.", "rel_path": "audit/audit/iam/review-1.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/iam/review-1.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/audit/iam/review-1.tex", "has_pdf": true, "pdf_rel": "audit/audit/iam/review-1.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/iam/review-1.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/audit/iam/review-1.pdf", "repo": "audit", "pages": 6, "lines": 219, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 38, "title": "Технічні вимоги: Обґрунтування впровадження єдиного рушія BPMN та ABAC", "category": "Аудит та експертиза", "desc": "Техніко-економічне обґрунтування уніфікації бізнес-процесів судів на відкритому BPMN-рушії та динамічному ABAC.", "rel_path": "audit/audit/judge/bpmn-unity.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/judge/bpmn-unity.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/audit/judge/bpmn-unity.tex", "has_pdf": true, "pdf_rel": "audit/audit/judge/bpmn-unity.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/judge/bpmn-unity.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/audit/judge/bpmn-unity.pdf", "repo": "audit", "pages": 6, "lines": 163, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 39, "title": "ДП «ІСС»: Лист-відповідь ЛЗІ щодо проєкту Технічних вимог (Офіційний лист)", "category": "Аудит та експертиза", "desc": "Офіційний супровідний лист ДП «ІСС» щодо проєкту Технічних вимог до захищеної інфраструктури судів.", "rel_path": "audit/audit/iam/lzi.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/iam/lzi.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/audit/iam/lzi.tex", "has_pdf": true, "pdf_rel": "audit/audit/iam/lzi.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/iam/lzi.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/audit/iam/lzi.pdf", "repo": "audit", "pages": 5, "lines": 140, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 40, "title": "Аналітична довідка: Аналіз методології порівняння архітектурних підходів компанії Стрімко", "category": "Аудит та експертиза", "desc": "Критичний розбір методологічних прогалин у звіті зовнішнього підрядника ТОВ «Стрімко».", "rel_path": "audit/audit/judge/methodology-analysis.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/judge/methodology-analysis.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/audit/judge/methodology-analysis.tex", "has_pdf": true, "pdf_rel": "audit/audit/judge/methodology-analysis.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/judge/methodology-analysis.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/audit/judge/methodology-analysis.pdf", "repo": "audit", "pages": 4, "lines": 162, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 41, "title": "Протокол уточнень та пропозицій до проєкту ТВ «ЄДРВД»", "category": "Аудит та експертиза", "desc": "Офіційний протокол зауважень та правок до реєстру виконавчих документів.", "rel_path": "audit/audit/edrvd/протокол-ЄДРВД.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/edrvd/протокол-ЄДРВД.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/audit/edrvd/%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB-%D0%84%D0%94%D0%A0%D0%92%D0%94.tex", "has_pdf": true, "pdf_rel": "audit/audit/edrvd/протокол-ЄДРВД.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/edrvd/протокол-ЄДРВД.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/audit/edrvd/%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB-%D0%84%D0%94%D0%A0%D0%92%D0%94.pdf", "repo": "audit", "pages": 3, "lines": 155, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 42, "title": "Протокол узгодження розбіжностей до Технічних вимог ЛЗІ (Таблиця правок)", "category": "Аудит та експертиза", "desc": "Посторінкова матриця розбіжностей між початковими вимогами та узгодженою новою редакцією.", "rel_path": "audit/audit/iam/protocol-lzi.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/iam/protocol-lzi.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/audit/iam/protocol-lzi.tex", "has_pdf": true, "pdf_rel": "audit/audit/iam/protocol-lzi.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/iam/protocol-lzi.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/audit/iam/protocol-lzi.pdf", "repo": "audit", "pages": 1, "lines": 144, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 43, "title": "Посібник користувача: Підсистема відеоконференцзв’язку ЄСІКС", "category": "Підсистема ВКЗ", "desc": "Інструкція для учасників судових засідань, суддів та секретарів щодо участі у ВКЗ через веббраузер та кабінет.", "rel_path": "vkz/documents/instructions.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/documents/instructions.tex", "tex_url": "https://github.com/uacourt/vkz/blob/main/documents/instructions.tex", "has_pdf": true, "pdf_rel": "vkz/documents/instructions.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/documents/instructions.pdf", "pdf_url": "https://uacourt.github.io/vkz/documents/instructions.pdf", "repo": "vkz", "pages": 8, "lines": 258, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 44, "title": "Настанови адміністратора: Адміністрування підсистеми відеоконференцзв’язку", "category": "Підсистема ВКЗ", "desc": "Інструкція системного адміністратора: мережеві порти, WebRTC медіатракти, налаштування RTMP/RTSP стрімінгу та телеметрії.", "rel_path": "vkz/documents/admin.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/documents/admin.tex", "tex_url": "https://github.com/uacourt/vkz/blob/main/documents/admin.tex", "has_pdf": true, "pdf_rel": "vkz/documents/admin.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/documents/admin.pdf", "pdf_url": "https://uacourt.github.io/vkz/documents/admin.pdf", "repo": "vkz", "pages": 7, "lines": 185, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 45, "title": "Performance & Capacity of Erlang/GStreamer WebRTC Gateway", "category": "Підсистема ВКЗ", "desc": "Інженерно-математичне дослідження продуктивності: модель алокації пам'яті та ліміти одночасних судових засідань.", "rel_path": "vkz/vkz-monolith/capacity.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/vkz-monolith/capacity.tex", "tex_url": "https://github.com/uacourt/vkz/blob/main/vkz-monolith/capacity.tex", "has_pdf": true, "pdf_rel": "vkz/vkz-monolith/capacity.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/vkz-monolith/capacity.pdf", "pdf_url": "https://uacourt.github.io/vkz/vkz-monolith/capacity.pdf", "repo": "vkz", "pages": 6, "lines": 147, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 46, "title": "rtp-monolith: A Shared-Nothing MCU Gateway for High-Density Video Conferencing", "category": "Підсистема ВКЗ", "desc": "Архітектурний опис розробки високонадійного автономного MCU-шлюзу відеоконференцій на базі Alpine Linux у Kubernetes.", "rel_path": "vkz/vkz-monolith/rtp.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/vkz-monolith/rtp.tex", "tex_url": "https://github.com/uacourt/vkz/blob/main/vkz-monolith/rtp.tex", "has_pdf": true, "pdf_rel": "vkz/vkz-monolith/rtp.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/vkz-monolith/rtp.pdf", "pdf_url": "https://uacourt.github.io/vkz/vkz-monolith/rtp.pdf", "repo": "vkz", "pages": 5, "lines": 239, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 47, "title": "Атестаційна магістерська робота: Системи управління неструктурованими інформаційними потоками", "category": "ШІ та наукові дослідження", "desc": "Фундаментальна академічна робота (НТУУ «КПІ», каф. прикладної математики, М. Сохацький) з теорії обробки процесної інформації.", "rel_path": "bpmn/doc/msc.tex", "full_path": "/Users/tonpa/depot/uacourt/bpmn/doc/msc.tex", "tex_url": "https://github.com/uacourt/bpmn/blob/master/doc/msc.tex", "has_pdf": true, "pdf_rel": "bpmn/doc/msc.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/bpmn/doc/msc.pdf", "pdf_url": "https://github.com/uacourt/bpmn/blob/master/doc/msc.pdf", "repo": "bpmn", "pages": 61, "lines": 1698, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 48, "title": "ЄСІКС: Інтелектуальні сервіси — Локальна інфраструктура на базі споживчих GPU", "category": "ШІ та наукові дослідження", "desc": "Технічне та фінансове обґрунтування використання кластера локальних споживчих GPU (Nvidia RTX 4090/5090) замість Enterprise хмар.", "rel_path": "ai/requirements/ai_infra.tex", "full_path": "/Users/tonpa/depot/uacourt/ai/requirements/ai_infra.tex", "tex_url": "https://github.com/uacourt/ai/blob/main/requirements/ai_infra.tex", "has_pdf": true, "pdf_rel": "ai/requirements/ai_infra.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ai/requirements/ai_infra.pdf", "pdf_url": "https://uacourt.github.io/ai/requirements/ai_infra.pdf", "repo": "ai", "pages": 17, "lines": 422, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 49, "title": "ЄСІКС: Інтелектуальні сервіси — Локальна обчислювальна інфраструктура (audit)", "category": "ШІ та наукові дослідження", "desc": "Архітектура розміщення та енергоспоживання GPU-серверів для ШІ-інференсу в центрі обробки даних судів.", "rel_path": "audit/infrastructure/ai.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/infrastructure/ai.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/infrastructure/ai.tex", "has_pdf": true, "pdf_rel": "audit/infrastructure/ai.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/infrastructure/ai.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/infrastructure/ai.pdf", "repo": "audit", "pages": 17, "lines": 423, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 50, "title": "ЄСІКС: Техноробочий проєкт створення локальної LLM-інфраструктури", "category": "ШІ та наукові дослідження", "desc": "Повний техноробочий проєкт інтеграції мовних моделей у судове діловодство для швидкого семантичного аналізу документів.", "rel_path": "ai/implementation/ai_pro.tex", "full_path": "/Users/tonpa/depot/uacourt/ai/implementation/ai_pro.tex", "tex_url": "https://github.com/uacourt/ai/blob/main/implementation/ai_pro.tex", "has_pdf": true, "pdf_rel": "ai/implementation/ai_pro.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ai/implementation/ai_pro.pdf", "pdf_url": "https://uacourt.github.io/ai/implementation/ai_pro.pdf", "repo": "ai", "pages": 11, "lines": 417, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 51, "title": "ЄСІКС: Технічні вимоги — Локальна LLM-інфраструктура для аналізу та оцінки істотності", "category": "ШІ та наукові дослідження", "desc": "ТВ до архітектури RAG, безпеки збереження правової таємниці, якості контекстних відповідей та інференсу.", "rel_path": "ai/requirements/ai.tex", "full_path": "/Users/tonpa/depot/uacourt/ai/requirements/ai.tex", "tex_url": "https://github.com/uacourt/ai/blob/main/requirements/ai.tex", "has_pdf": true, "pdf_rel": "ai/requirements/ai.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ai/requirements/ai.pdf", "pdf_url": "https://uacourt.github.io/ai/requirements/ai.pdf", "repo": "ai", "pages": 11, "lines": 274, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 52, "title": "Наукова праця: Математична модель оцінки впливу нової редакції норми права на єдність судової практики", "category": "ШІ та наукові дослідження", "desc": "Наукова стаття (КПІ, М. Сохацький) щодо оцінки впливу змін ч. 2 ст. 61 Кодексу з процедур банкрутства на єдність судових рішень.", "rel_path": "audit/audit/llm/justice-llm.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/audit/llm/justice-llm.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/audit/llm/justice-llm.tex", "has_pdf": true, "pdf_rel": "audit/audit/llm/justice-llm.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/audit/llm/justice-llm.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/audit/llm/justice-llm.pdf", "repo": "audit", "pages": 3, "lines": 108, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 53, "title": "Політики Технічних вимог, Технічного завдання і Технічної Документації ЄСІКС", "category": "OKR, політики та регламенти", "desc": "Єдині корпоративні правила та стандарти складання, версіонування та погодження технічної документації системи.", "rel_path": "ujics/policy/policy.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/policy/policy.tex", "tex_url": "https://github.com/uacourt/ujics/blob/main/policy/policy.tex", "has_pdf": true, "pdf_rel": "ujics/policy/policy.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/policy/policy.pdf", "pdf_url": "https://uacourt.github.io/ujics/policy/policy.pdf", "repo": "ujics", "pages": 32, "lines": 1127, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 54, "title": "Політики Технічних вимог та документації (репозиторій vkz)", "category": "OKR, політики та регламенти", "desc": "Стандарти якості, стилю та структури технічної документації підсистеми відеоконференцзв'язку.", "rel_path": "vkz/policy/policy.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/policy/policy.tex", "tex_url": "https://github.com/uacourt/vkz/blob/main/policy/policy.tex", "has_pdf": true, "pdf_rel": "vkz/policy/policy.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/policy/policy.pdf", "pdf_url": "https://uacourt.github.io/vkz/policy/policy.pdf", "repo": "vkz", "pages": 31, "lines": 1112, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 55, "title": "ДП «ІСС» — Політики Технічних Вимог та Технічного Завдання (CRM-pro)", "category": "OKR, політики та регламенти", "desc": "Політики та регламенти розробки CRM-підсистеми та протоколів взаємодії сервісів.", "rel_path": "crm-pro/policy.tex", "full_path": "/Users/tonpa/depot/uacourt/crm-pro/policy.tex", "tex_url": "https://github.com/uacourt/crm/blob/main/policy.tex", "has_pdf": true, "pdf_rel": "crm-pro/policy.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/crm-pro/policy.pdf", "pdf_url": "https://github.com/uacourt/crm/blob/main/policy.pdf", "repo": "crm-pro", "pages": 25, "lines": 947, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 56, "title": "Цілі та ключові результати (OKR): Програма модернізації ЄСІКС", "category": "OKR, політики та регламенти", "desc": "Стратегічний план реформування та метрики модернізації судових підсистем за квартальною методологією OKR.", "rel_path": "ujics/okr/okr.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/okr/okr.tex", "tex_url": "https://github.com/uacourt/ujics/blob/main/okr/okr.tex", "has_pdf": true, "pdf_rel": "ujics/okr/okr.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/okr/okr.pdf", "pdf_url": "https://uacourt.github.io/ujics/okr/okr.pdf", "repo": "ujics", "pages": 25, "lines": 988, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 57, "title": "Цілі та ключові результати (OKR): Програма модернізації ЄСІКС (копія vkz)", "category": "OKR, політики та регламенти", "desc": "Синхронізовані стратегічні цілі модернізації ВКЗ у загальній програмі оновлення ЄСІКС.", "rel_path": "vkz/okr/okr.tex", "full_path": "/Users/tonpa/depot/uacourt/vkz/okr/okr.tex", "tex_url": "https://github.com/uacourt/vkz/blob/main/okr/okr.tex", "has_pdf": true, "pdf_rel": "vkz/okr/okr.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/vkz/okr/okr.pdf", "pdf_url": "https://uacourt.github.io/vkz/okr/okr.pdf", "repo": "vkz", "pages": 25, "lines": 988, "is_duplicate": true, "duplicate_of": "ujics/okr/okr.tex", "verified_target": "uacourt.github.io"}, {"id": 58, "title": "Регламент проєктного планування ДП «Інформаційні судові системи»", "category": "OKR, політики та регламенти", "desc": "Офіційний регламент повного циклу розробки ПЗ (SDLC), управління релізами, тестування та супроводу систем.", "rel_path": "ujics/management/management.tex", "full_path": "/Users/tonpa/depot/uacourt/ujics/management/management.tex", "tex_url": "https://github.com/uacourt/ujics/blob/main/management/management.tex", "has_pdf": true, "pdf_rel": "ujics/management/management.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/ujics/management/management.pdf", "pdf_url": "https://uacourt.github.io/ujics/management/management.pdf", "repo": "ujics", "pages": 16, "lines": 498, "is_duplicate": false, "duplicate_of": null, "verified_target": "uacourt.github.io"}, {"id": 59, "title": "Тендерна документація: Додаток 2 — Технічні вимоги до створення КСЗІ", "category": "Тендери та накази ДП «ІСС»", "desc": "Тендерні вимоги до робіт зі створення КСЗІ обчислювальної мережі та підсистем ЄСІКС.", "rel_path": "audit/security/SJA_Додаток_2_Технічні_вимоги.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/security/SJA_Додаток_2_Технічні_вимоги.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/security/SJA_%D0%94%D0%BE%D0%B4%D0%B0%D1%82%D0%BE%D0%BA_2_%D0%A2%D0%B5%D1%85%D0%BD%D1%96%D1%87%D0%BD%D1%96_%D0%B2%D0%B8%D0%BC%D0%BE%D0%B3%D0%B8.tex", "has_pdf": true, "pdf_rel": "audit/security/SJA_Додаток_2_Технічні_вимоги.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/security/SJA_Додаток_2_Технічні_вимоги.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/security/SJA_%D0%94%D0%BE%D0%B4%D0%B0%D1%82%D0%BE%D0%BA_2_%D0%A2%D0%B5%D1%85%D0%BD%D1%96%D1%87%D0%BD%D1%96_%D0%B2%D0%B8%D0%BC%D0%BE%D0%B3%D0%B8.pdf", "repo": "audit", "pages": 11, "lines": 377, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 60, "title": "Тендерна документація: Додаток 2 (копія в security)", "category": "Тендери та накази ДП «ІСС»", "desc": "Тендерні вимоги до підрядника зі створення комплексної системи захисту.", "rel_path": "security/priv/SJA_Додаток_2_Технічні_вимоги.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/SJA_Додаток_2_Технічні_вимоги.tex", "tex_url": "https://github.com/uacourt/security/blob/main/priv/SJA_%D0%94%D0%BE%D0%B4%D0%B0%D1%82%D0%BE%D0%BA_2_%D0%A2%D0%B5%D1%85%D0%BD%D1%96%D1%87%D0%BD%D1%96_%D0%B2%D0%B8%D0%BC%D0%BE%D0%B3%D0%B8.tex", "has_pdf": true, "pdf_rel": "security/priv/SJA_Додаток_2_Технічні_вимоги.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/SJA_Додаток_2_Технічні_вимоги.pdf", "pdf_url": "https://github.com/uacourt/security/blob/main/priv/SJA_%D0%94%D0%BE%D0%B4%D0%B0%D1%82%D0%BE%D0%BA_2_%D0%A2%D0%B5%D1%85%D0%BD%D1%96%D1%87%D0%BD%D1%96_%D0%B2%D0%B8%D0%BC%D0%BE%D0%B3%D0%B8.pdf", "repo": "security", "pages": 11, "lines": 377, "is_duplicate": true, "duplicate_of": "audit/security/SJA_Додаток_2_Технічні_вимоги.tex", "verified_target": "github.com/uacourt"}, {"id": 61, "title": "Тендерна документація: Додаток 3 — Проєкт договору на створення КСЗІ", "category": "Тендери та накази ДП «ІСС»", "desc": "Типовий договір надання послуг з побудови, налаштування та атестації комплексної системи захисту.", "rel_path": "audit/security/SJA_Додаток_3_Договір.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/security/SJA_Додаток_3_Договір.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/security/SJA_%D0%94%D0%BE%D0%B4%D0%B0%D1%82%D0%BE%D0%BA_3_%D0%94%D0%BE%D0%B3%D0%BE%D0%B2%D1%96%D1%80.tex", "has_pdf": true, "pdf_rel": "audit/security/SJA_Додаток_3_Договір.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/security/SJA_Додаток_3_Договір.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/security/SJA_%D0%94%D0%BE%D0%B4%D0%B0%D1%82%D0%BE%D0%BA_3_%D0%94%D0%BE%D0%B3%D0%BE%D0%B2%D1%96%D1%80.pdf", "repo": "audit", "pages": 6, "lines": 174, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 62, "title": "Тендерна документація: Додаток 3 (копія в security)", "category": "Тендери та накази ДП «ІСС»", "desc": "Проєкт договору про закупівлю послуг КСЗІ.", "rel_path": "security/priv/SJA_Додаток_3_Договір.tex", "full_path": "/Users/tonpa/depot/uacourt/security/priv/SJA_Додаток_3_Договір.tex", "tex_url": "https://github.com/uacourt/security/blob/main/priv/SJA_%D0%94%D0%BE%D0%B4%D0%B0%D1%82%D0%BE%D0%BA_3_%D0%94%D0%BE%D0%B3%D0%BE%D0%B2%D1%96%D1%80.tex", "has_pdf": true, "pdf_rel": "security/priv/SJA_Додаток_3_Договір.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/security/priv/SJA_Додаток_3_Договір.pdf", "pdf_url": "https://github.com/uacourt/security/blob/main/priv/SJA_%D0%94%D0%BE%D0%B4%D0%B0%D1%82%D0%BE%D0%BA_3_%D0%94%D0%BE%D0%B3%D0%BE%D0%B2%D1%96%D1%80.pdf", "repo": "security", "pages": 6, "lines": 174, "is_duplicate": true, "duplicate_of": "audit/security/SJA_Додаток_3_Договір.tex", "verified_target": "github.com/uacourt"}, {"id": 63, "title": "Наказ ДП «ІСС»: Про визначення адміністраторів", "category": "Тендери та накази ДП «ІСС»", "desc": "Розпорядчий наказ про призначення відповідальних адміністраторів компонентів та підсистем.", "rel_path": "audit/templates/order_admin_appointment.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/templates/order_admin_appointment.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/templates/order_admin_appointment.tex", "has_pdf": true, "pdf_rel": "audit/templates/order_admin_appointment.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/templates/order_admin_appointment.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/templates/order_admin_appointment.pdf", "repo": "audit", "pages": 4, "lines": 191, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 64, "title": "Наказ ДП «ІСС»: Про розподіл відповідальності, прав та обов’язків адміністраторів ЄСІКС", "category": "Тендери та накази ДП «ІСС»", "desc": "Положення про права та обов’язки системних адміністраторів, захист інформації та безпеку сесій.", "rel_path": "audit/templates/order_at_ir_ma_ps_pe.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/templates/order_at_ir_ma_ps_pe.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/templates/order_at_ir_ma_ps_pe.tex", "has_pdf": true, "pdf_rel": "audit/templates/order_at_ir_ma_ps_pe.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/templates/order_at_ir_ma_ps_pe.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/templates/order_at_ir_ma_ps_pe.pdf", "repo": "audit", "pages": 4, "lines": 124, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 65, "title": "Наказ ДП «ІСС»: Про організацію робіт із розробки та впровадження КСЗІ", "category": "Тендери та накази ДП «ІСС»", "desc": "Наказ про запуск робіт з проєктування та проходження державної експертизи КСЗІ.", "rel_path": "audit/templates/order_kszi_development.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/templates/order_kszi_development.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/templates/order_kszi_development.tex", "has_pdf": true, "pdf_rel": "audit/templates/order_kszi_development.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/templates/order_kszi_development.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/templates/order_kszi_development.pdf", "repo": "audit", "pages": 3, "lines": 113, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 66, "title": "Наказ ДП «ІСС»: Про створення Служби захисту інформації (СЗІ)", "category": "Тендери та накази ДП «ІСС»", "desc": "Організаційний наказ про формування штатної служби захисту інформації Підприємства згідно з НД ТЗІ.", "rel_path": "audit/templates/order_szi_establishment.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/templates/order_szi_establishment.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/templates/order_szi_establishment.tex", "has_pdf": true, "pdf_rel": "audit/templates/order_szi_establishment.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/templates/order_szi_establishment.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/templates/order_szi_establishment.pdf", "repo": "audit", "pages": 3, "lines": 107, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}, {"id": 67, "title": "Наказ ДП «ІСС»: Про порядок фізичного доступу до серверної кімнати ЦОД", "category": "Тендери та накази ДП «ІСС»", "desc": "Режимний наказ про правила допуску до дата-центру та захист фізичного периметра серверних шаф.", "rel_path": "audit/templates/order_physical_access.tex", "full_path": "/Users/tonpa/depot/uacourt/audit/templates/order_physical_access.tex", "tex_url": "https://github.com/uacourt/audit/blob/main/templates/order_physical_access.tex", "has_pdf": true, "pdf_rel": "audit/templates/order_physical_access.pdf", "pdf_full": "/Users/tonpa/depot/uacourt/audit/templates/order_physical_access.pdf", "pdf_url": "https://github.com/uacourt/audit/blob/main/templates/order_physical_access.pdf", "repo": "audit", "pages": 2, "lines": 137, "is_duplicate": false, "duplicate_of": null, "verified_target": "github.com/uacourt"}];
 
     let currentRepo = '';
     let showOnlyUnique = false;
@@ -1189,15 +1177,21 @@
         filtered.forEach(d => {
             const tr = document.createElement('tr');
             const dupBadge = d.is_duplicate ? `<span class="stamp stamp-dim" title="Дублікат ${d.duplicate_of}">копія</span> ` : '';
+            
+            const isPages = d.pdf_url && d.pdf_url.includes('uacourt.github.io');
+            const hostBadge = isPages ? 
+                `<span class="stamp stamp-live" style="margin-right:0.4rem;font-size:0.68rem;padding:0.1rem 0.35rem;" title="Офіційний сайт GitHub Pages">uacourt.github.io/${d.repo}</span>` : 
+                `<span class="stamp stamp-ink" style="margin-right:0.4rem;font-size:0.68rem;padding:0.1rem 0.35rem;" title="Репозиторій GitHub">github.com/uacourt/${d.repo === 'crm-pro' ? 'crm' : d.repo}</span>`;
+
             const pdfLink = d.has_pdf ? 
-                `<a class="entry entry-teal" href="${d.pdf_url}">PDF (${d.pages}p) →</a>` : 
+                `<a class="entry entry-teal" href="${d.pdf_url}" target="_blank" rel="noopener noreferrer">PDF (${d.pages}p) →</a>` : 
                 `<span style="color:var(--ink-4);font-family:var(--mono-font);font-size:0.75rem;">—</span>`;
 
             tr.innerHTML = `
                 <td style="color:var(--ink-3); font-family:var(--mono-font); font-size:0.8rem;">${d.id < 10 ? '0' + d.id : d.id}</td>
                 <td>
                     <div class="doc-title-text">${dupBadge}${d.title}</div>
-                    <div class="doc-path-text">${d.rel_path}</div>
+                    <div class="doc-path-text">${hostBadge}${d.rel_path}</div>
                     <div class="doc-desc-text">${d.desc}</div>
                 </td>
                 <td><span class="stamp stamp-ink">${d.repo}</span></td>
@@ -1206,7 +1200,7 @@
                 <td style="text-align:center; font-family:var(--mono-font); font-size:0.82rem; color:var(--ink-3);">${d.lines.toLocaleString()}</td>
                 <td style="text-align:right;">
                     <div class="actions-cluster">
-                        <a class="entry" href="${d.tex_url}">.tex →</a>
+                        <a class="entry" href="${d.tex_url}" target="_blank" rel="noopener noreferrer">.tex (GitHub) →</a>
                         ${pdfLink}
                     </div>
                 </td>
@@ -1222,14 +1216,21 @@
             const card = document.createElement('div');
             card.className = 'doc-card-plate';
             const dupBadge = d.is_duplicate ? `<span class="stamp stamp-dim">копія</span> ` : '';
+            
+            const isPages = d.pdf_url && d.pdf_url.includes('uacourt.github.io');
+            const hostBadge = isPages ? 
+                `<span class="stamp stamp-live" style="font-size:0.68rem;">uacourt.github.io/${d.repo}</span>` : 
+                `<span class="stamp stamp-ink" style="font-size:0.68rem;">github.com/uacourt/${d.repo === 'crm-pro' ? 'crm' : d.repo}</span>`;
+
             const pdfLink = d.has_pdf ? 
-                `<a class="entry entry-teal" href="${d.pdf_url}">PDF (${d.pages} стор.) →</a>` : '';
+                `<a class="entry entry-teal" href="${d.pdf_url}" target="_blank" rel="noopener noreferrer">PDF (${d.pages} стор.) →</a>` : '';
 
             card.innerHTML = `
                 <div class="doc-card-top">
                     <span style="font-family:var(--mono-font); font-size:0.75rem; color:var(--ink-3); font-weight:600;">№ ${d.id < 10 ? '0' + d.id : d.id}</span>
-                    <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+                    <div style="display:flex;gap:0.4rem;flex-wrap:wrap;align-items:center;">
                         <span class="stamp stamp-ink">${d.repo}</span>
+                        ${hostBadge}
                         <span class="stamp stamp-dim">${d.category}</span>
                         ${dupBadge}
                     </div>
@@ -1245,7 +1246,7 @@
                         <span style="font-family:var(--mono-font); font-size:0.76rem; color:var(--ink-4); margin-left:0.5rem;">${d.lines.toLocaleString()} ряд.</span>
                     </div>
                     <div class="actions-cluster">
-                        <a class="entry" href="${d.tex_url}">.tex →</a>
+                        <a class="entry" href="${d.tex_url}" target="_blank" rel="noopener noreferrer">.tex (GitHub) →</a>
                         ${pdfLink}
                     </div>
                 </div>
